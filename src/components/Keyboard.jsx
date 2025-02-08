@@ -18,7 +18,7 @@ export const Keyboard = () => {
     return (
         <>
             <div className='keyboard'>
-                <p className='title'>‎{pin.toString().slice(0,3-digit)}</p>
+                <p className='titlePin'>‎{pin.toString().slice(0,3-digit)}</p>
                 {
                     teclado.map((numero) => {
                         return (
