@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { KeyboardContext } from '../contexts/KeyboardContext';
+import '../styles/Login.css'
 
 export const Login = () => {
     const { state, setState } = useContext(KeyboardContext);
 
     const confirmarPIN = () => {
-        {/* TODO implementar el ingreso del PIN por teclado*/}
         if (state == 1234) {
             setState(9876)
         }
@@ -20,7 +20,7 @@ export const Login = () => {
             <h1>
                 {state.pin}
             </h1>
-            <button onClick={confirmarPIN}>
+            <button className='boton' onClick={confirmarPIN()}>
                 Ingresar
             </button>
         </>
