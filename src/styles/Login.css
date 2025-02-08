@@ -1,0 +1,20 @@
+.boton {
+    display: flex;
+    color: rgb(46, 59, 126);  
+    font-size: 22px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: rgb(233, 233, 233);
+    padding: 20px;
+    border-radius: 20px;
+    border-bottom: solid 10px;
+    border-color: rgb(0, 128, 0);
+    user-select: none;
+    transition: background-color 0.3s, border-color 0.3s; 
+  }
+  
+  .boton:hover {
+    background-color: rgb(157, 157, 157);
+    border-color: rgb(46, 59, 126);
+  }
