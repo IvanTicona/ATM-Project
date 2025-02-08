@@ -5,9 +5,12 @@ import '../styles/Login.css'
 export const Login = () => {
     const { state, setState } = useContext(KeyboardContext);
 
+    // TODO falta hacer la confirmación del PIN desde la BD Firebase
     const confirmarPIN = () => {
-        if (state == 1234) {
-            setState(9876)
+        if (state.pin == 1234) {
+            console.log("Pin confirmado")
+        } else {
+            console.log("Pin rechazado")
         }
     };
 
@@ -20,7 +23,7 @@ export const Login = () => {
             <h1>
                 {state.pin}
             </h1>
-            <button className='boton' onClick={confirmarPIN()}>
+            <button className='boton' onClick={() => confirmarPIN()}>
                 Ingresar
             </button>
         </>

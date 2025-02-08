@@ -9,10 +9,12 @@ export const Keyboard = () => {
     const { setState } = useContext(KeyboardContext); // Obtener setState del contexto
 
     const handleButtonClick = () => {
-        setState(prevState => ({
-            ...prevState,
-            pin: pin,
-        }));
+        if (digit == -1 ) {
+            setState(prevState => ({
+                ...prevState,
+                pin: pin,
+            }));
+        } 
     };
 
     return (
