@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import { useContext } from 'react';
 import { KeyboardContext } from '../contexts/KeyboardContext';
 import '../styles/Button.css'
 
