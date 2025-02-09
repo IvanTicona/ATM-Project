@@ -1,12 +1,14 @@
 import React, { useState, useContext } from 'react';
-import { KeyboardContext } from '../contexts/KeyboardContext'; // Asegúrate de importar el contexto
+import { KeyboardContext } from '../contexts/KeyboardContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Keyboard.css'
 
 export const Keyboard = () => {
     const teclado = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
     const [pin, setPin] = useState(0);
     const [digit, setDigit] = useState(3);
-    const { setState } = useContext(KeyboardContext); // Obtener setState del contexto
+    const { setState } = useContext(KeyboardContext);
 
     const handleButtonClick = () => {
         if (digit == -1 ) {
@@ -14,7 +16,17 @@ export const Keyboard = () => {
                 ...prevState,
                 pin: pin,
             }));
-        } 
+        } else {
+            notify("El pin debe tener 4 dígitos.")
+        }
+    };
+
+    const notify = (message) => {
+        toast(message, {
+        autoClose: 5000,
+        closeOnClick: true,
+        progress: undefined, 
+        });
     };
 
     return (
@@ -28,6 +40,8 @@ export const Keyboard = () => {
                                 if (digit >= 0) {
                                     setPin(pin + numero * Math.pow(10, digit));
                                     setDigit(digit - 1);
+                                } else {
+                                    toast("No se pueden introducir más de 4 dígitos.")
                                 }
                             }}>
                                 {numero}
@@ -35,7 +49,6 @@ export const Keyboard = () => {
                         );
                     })
                 }
-
                 <button className='button-cancel' onClick={()=>{setPin(0);setDigit(3)}}>
                     Repetir
                 </button>
