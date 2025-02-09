@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import { KeyboardContext } from '../contexts/KeyboardContext';
-import '../styles/Login.css'
+import '../styles/Button.css'
 
 export const Login = () => {
     const { state, setState } = useContext(KeyboardContext);
@@ -23,8 +23,8 @@ export const Login = () => {
             <h1>
                 {state.pin}
             </h1>
-            <button className='boton' onClick={() => confirmarPIN()}>
-                Ingresar
+            <button className='boton' onClick={confirmarPIN()}>
+                <h3 className='texto'>Ingresar</h3>
             </button>
         </>
     );

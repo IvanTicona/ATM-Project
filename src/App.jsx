@@ -1,18 +1,18 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, Routes } from 'react-router'
 import './App.css'
-import { Login } from './screens/Login'
-import { Keyboard } from './components/Keyboard'
+import { Operaciones } from './screens/Operaciones'
+import { IngresarPin } from './screens/IngresarPin'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-        <Login/>
-        <Keyboard/>
-    </>
+    <Routes>
+      <Route path="/" element={<Operaciones />} />
+      <Route path="/login" element={<IngresarPin />} />
+      {/* <Route path="/extractos" element={<Operaciones />} /> */}
+      {/* <Route path="/transferencias" element={<Operaciones />} /> */}
+      {/* <Route path="/" element={<Operaciones />} /> */}
+    </Routes>
   )
 }
 
