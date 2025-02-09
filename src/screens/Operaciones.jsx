@@ -16,6 +16,31 @@ export const Operaciones = () => {
     "Transferencia"
   ]
 
+  const verificarOperacion = (index) => {
+    switch (index) {
+      case 0: 
+        console.log("Debería ir a retiro rápido");
+        break;
+      case 1: 
+        navigate("/saldo");
+        break; 
+      case 2: 
+        console.log("Debería ir a retiro");
+        break; 
+      case 3: 
+        console.log("Debería ir a extracto");
+        break; 
+      case 4: 
+        console.log("Debería ir a servicios");
+        break; 
+      case 5: 
+        console.log("Debería ir a transferencia");
+        break; 
+      default: 
+        console.log('Estado desconocido.');
+    }
+  };
+
   return (
     <>
       <h3 className='title'>SELECCIONE</h3>
@@ -28,7 +53,7 @@ export const Operaciones = () => {
                 key={index} 
                 texto={name} 
                 direccion={index%2==0? "izquierda":"derecha"} 
-                accion={()=>navigate("/login")} 
+                accion={()=>verificarOperacion(index)} 
               />
             )
           })
