@@ -1,8 +1,8 @@
 .keyboard{
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(3, 100px); /* 4 columnas de 100px */
-    grid-template-rows: repeat(4, 100px); /* 3 filas de 100px */
+    grid-template-columns: repeat(3, 75px); /* 4 columnas de 100px */
+    grid-template-rows: repeat(4, 75px); /* 3 filas de 100px */
     flex-wrap: wrap;
     background-color: #484848;
     justify-content: center;
@@ -24,8 +24,8 @@
 }
 
 .button{
-    width: 100px;
-    height: 100px;
+    width: 75px;
+    height: 75px;
     font-size: 45px;
     background-color: #ffffff;
     color: #000000;
@@ -40,9 +40,9 @@
 }
 
 .button-accept{
-    width: 100px;
-    height: 100px;
-    font-size: 25px;
+    width: 75px;
+    height: 75px;
+    font-size: 35px;
     background-color: #1cb041;
     color: white;
     border: none;
@@ -55,9 +55,9 @@
 }
 
 .button-cancel{
-    width: 100px;
-    height: 100px;
-    font-size: 25px;
+    width: 75px;
+    height: 75px;
+    font-size: 35px;
     background-color: #f81919b9;
     color: white;
     border: none;
