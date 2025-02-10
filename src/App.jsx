@@ -2,32 +2,34 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import { Extracto } from './screens/Extracto'
+import { CuentasTerceros } from './screens/CuentasTerceros'
+import { TransferenciaCuenta } from './screens/TransferenciaCuenta'
+import { Route, Routes } from 'react-router'
+import { VerEnPantalla } from './screens/VerEnPantalla'
+import { OtroServicio } from './screens/OtroServicio'
+import { CuentasOtrosBancos } from './screens/CuentasOtrosBancos'
+import { CuentasPropias } from './screens/CuentasPropias'
+import { LeerTarjeta } from './screens/LeerTarjeta'
+import { SinTarjeta } from './screens/SinTarjeta'
 
 function App() {
+
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    <Routes>
+        <Route path="/extracto" element={<Extracto />} />
+        <Route path="/cuentasTerceros" element={<CuentasTerceros />} />
+        <Route path="/cuentasOtrosBancos" element={<CuentasOtrosBancos />} />
+        <Route path="/cuentasPropias" element={<CuentasPropias />} />
+        <Route path="/verEnPantalla" element={<VerEnPantalla />} />
+        <Route path="/otroServicio" element={<OtroServicio />} />
+        <Route path="/transferenciaCuenta" element={<TransferenciaCuenta />} />
+        <Route path="/leerTarjeta" element={<LeerTarjeta />} />
+        <Route path="/sinTarjeta" element={<SinTarjeta />} />
+      </Routes>
     </>
   )
 }
