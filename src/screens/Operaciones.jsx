@@ -13,7 +13,9 @@ export const Operaciones = () => {
     "Retiro",
     "Extracto",
     "Servicios",
-    "Transferencia"
+    "Transferencia",
+    "Tipo De Cambio",
+    "Cambio De PIN"
   ]
 
   const verificarOperacion = (index) => {
@@ -35,9 +37,16 @@ export const Operaciones = () => {
         break; 
       case 5: 
         console.log("Debería ir a transferencia");
+        break;
+      case 6: 
+        navigate("/TipoDeCambio");
         break; 
+      case 7: 
+        navigate("/CambioDePin")
+        break;  
       default: 
         console.log('Estado desconocido.');
+      
     }
   };
 

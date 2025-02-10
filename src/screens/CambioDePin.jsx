@@ -54,10 +54,10 @@ export const CambioDePin = () => {
                     })
                 }
                 <button className='button-cancel' onClick={()=>{setNewPin(0);setDigit(3)}}>
-                    Repetir
+                X
                 </button>
                 <button className='button-accept' onClick={()=>{setNewPin(0);setDigit(3);handleButtonClick()}}>
-                    Aceptar
+                ✔
                 </button>
             </div>
         </>
