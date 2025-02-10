@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import React, { useContext } from 'react';
 import { useNavigate } from "react-router";
 import { Keyboard } from '../components/Keyboard';
 import { KeyboardContext } from '../contexts/KeyboardContext';
