@@ -11,8 +11,8 @@ export const ConsultarSaldo = () => {
   return (
     <>
         <div className='div-vertical'>
-            <h1>Su saldo disponible es:</h1>
-            <h1>{saldo} Bs</h1>
+            <h3 className='title'>Su saldo disponible es:</h3>
+            <h3 className='title'>{saldo} Bs</h3>
 
             <div className='div-horizontal'>
                 <button className='boton' onClick={()=>navigate("/operaciones")}>

@@ -5,6 +5,7 @@ import { KeyboardContext } from '../contexts/KeyboardContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Button.css'
+import '../styles/Login.css'
 
 export const Login = () => {
     let navigate = useNavigate();
@@ -31,10 +32,10 @@ export const Login = () => {
     return (
         <>
             <div>
-                <h1>Bienvenido a su propio ATM</h1>
-                <h2>Ingrese su PIN:</h2>
+                <h3 className='title'>Bienvenido a su propio ATM</h3>
+                <h3 className='title'>Ingrese su PIN:</h3>
             </div>
-            <h1>
+            <h1 className='pin-container'>
                 {state.pin}
             </h1>
             <button className='boton' onClick={() => confirmarPIN()}>
