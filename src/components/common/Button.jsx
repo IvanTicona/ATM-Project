@@ -1,8 +1,7 @@
 import '../../styles/Button.css'
-//import imagenSrc from '../../assets/nextIcon.svg'
+import imagenSrc from '../../assets/nextIcon.svg'
 
 export const Button = ({direccion, texto, accion}) => {
-  const imagenSrc = ''
   return (
     <div onClick={accion} className="boton">
       {direccion === 'izquierda' && <img src={imagenSrc} alt="icono" className="icono" />}

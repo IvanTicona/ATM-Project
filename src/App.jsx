@@ -1,7 +1,9 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Route, Routes } from 'react-router'
 import './App.css'
+import { Login } from './screens/Login'
+import { Operaciones } from './screens/Operaciones'
+import { IngresarPin } from './screens/IngresarPin'
+import { ConsultarSaldo } from './screens/ConsultarSaldo'
 import { Extracto } from './screens/Extracto'
 import { CuentasTerceros } from './screens/CuentasTerceros'
 import { TransferenciaCuenta } from './screens/TransferenciaCuenta'
@@ -18,19 +20,24 @@ function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
     <Routes>
-        <Route path="/extracto" element={<Extracto />} />
-        <Route path="/cuentasTerceros" element={<CuentasTerceros />} />
-        <Route path="/cuentasOtrosBancos" element={<CuentasOtrosBancos />} />
-        <Route path="/cuentasPropias" element={<CuentasPropias />} />
-        <Route path="/verEnPantalla" element={<VerEnPantalla />} />
-        <Route path="/otroServicio" element={<OtroServicio />} />
-        <Route path="/transferenciaCuenta" element={<TransferenciaCuenta />} />
-        <Route path="/leerTarjeta" element={<LeerTarjeta />} />
-        <Route path="/sinTarjeta" element={<SinTarjeta />} />
-      </Routes>
-    </>
+      <Route path='/' element={<Login/>} />
+      <Route path="/operaciones" element={<Operaciones />} />
+      <Route path="/saldo" element={<ConsultarSaldo />} />
+      <Route path="/login" element={<IngresarPin />} />
+      {/* <Route path="/extractos" element={<Operaciones />} /> */}
+      {/* <Route path="/transferencias" element={<Operaciones />} /> */}
+      {/* <Route path="/" element={<Operaciones />} /> */}
+      <Route path="/extracto" element={<Extracto />} />
+      <Route path="/cuentasTerceros" element={<CuentasTerceros />} />
+      <Route path="/cuentasOtrosBancos" element={<CuentasOtrosBancos />} />
+      <Route path="/cuentasPropias" element={<CuentasPropias />} />
+      <Route path="/verEnPantalla" element={<VerEnPantalla />} />
+      <Route path="/otroServicio" element={<OtroServicio />} />
+      <Route path="/transferenciaCuenta" element={<TransferenciaCuenta />} />
+      <Route path="/leerTarjeta" element={<LeerTarjeta />} />
+      <Route path="/sinTarjeta" element={<SinTarjeta />} />
+    </Routes>
   )
 }
 
