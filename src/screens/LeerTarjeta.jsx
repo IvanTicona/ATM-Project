@@ -2,7 +2,7 @@ import React from 'react'
 import { useEffect } from "react";
 import '../App.css'
 import { useNavigate } from 'react-router';
-import { Button } from '../components/common/Button';
+import '../styles/Tarjeta.css'; 
 
 
 export const LeerTarjeta = () => {
@@ -16,7 +16,7 @@ export const LeerTarjeta = () => {
   }, [navigate]);
 
   return (
-    <div>
+    <div className = 'contenedor'>
       <h1>Leyendo el chip...</h1>
     </div>
   );

@@ -1,16 +1,18 @@
-import React from 'react'
+import React from 'react';
 import { useNavigate } from 'react-router';
 import { Button } from '../components/common/Button';
-
+import '../styles/OtroServicio.css'; 
 
 export const OtroServicio = () => {
   let navigate = useNavigate();
+
   return (
-    <>
-    <div>¿Requiere otro Servicio?</div>
-    <Button texto='Si' direccion='izquierda' accion={()=> navigate('/leerTarjeta')}/>
-    <Button texto='No' direccion='izquierda' accion={()=> navigate('/sinTarjeta')}/>
-    </>
-    
-  )
-}
+    <div className="contenedor">
+      <h1 className = "text">¿Requiere otro Servicio?</h1>
+      <div className="botones">
+        <Button texto="Si" direccion="izquierda" accion={() => navigate('/leerTarjeta')} />
+        <Button texto="No" direccion="izquierda" accion={() => navigate('/sinTarjeta')} />
+      </div>
+    </div>
+  );
+};

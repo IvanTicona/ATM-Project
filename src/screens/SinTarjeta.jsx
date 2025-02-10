@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import '../App.css'
 import { useNavigate } from "react-router";
-import { Button } from '../components/common/Button';
+import '../styles/Tarjeta.css'; 
 
 
 export const SinTarjeta = () => {
@@ -20,7 +20,7 @@ export const SinTarjeta = () => {
   }, [navigate]);
 
   return (
-    <div>
+    <div className = 'contenedor'>
     <h1>Por favor ingrese su tarjeta</h1>
     </div>
   )
