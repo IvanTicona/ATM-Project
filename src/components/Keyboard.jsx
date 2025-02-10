@@ -50,10 +50,10 @@ export const Keyboard = () => {
                     })
                 }
                 <button className='button-cancel' onClick={()=>{setPin(0);setDigit(3)}}>
-                    Repetir
+                    X
                 </button>
                 <button className='button-accept' onClick={()=>{setPin(0);setDigit(3);handleButtonClick()}}>
-                    Aceptar
+                ✔
                 </button>
             </div>
         </>

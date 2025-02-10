@@ -1,0 +1,16 @@
+.extractos-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh; /* Ocupa toda la pantalla */
+  justify-content: flex-start; /* Centra el contenido al principio de la pantalla */
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaciado entre botones */
+  align-items: center; /* Centra los botones horizontalmente */
+  margin-top: 20px; /* Separación del título */
+}
+
