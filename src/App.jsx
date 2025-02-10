@@ -15,8 +15,8 @@ function App() {
       <Route path="/operaciones" element={<Operaciones />} />
       <Route path="/saldo" element={<TipoDeCambio/>} />
       <Route path="/login" element={<IngresarPin />} />
-     <Route path="/CambioDePin" element={<CambioDePin />}/>
-      {/* <Route path="/transferencias" element={<Operaciones />} /> */}
+      <Route path="/CambioDePin" element={<CambioDePin />}/>
+      <Route path="/TipoDeCambio" element={<TipoDeCambio />} /> 
       {/* <Route path="/" element={<Operaciones />} /> */}
     </Routes>
   )
