@@ -14,6 +14,8 @@ import { LeerTarjeta } from './screens/LeerTarjeta'
 import { SinTarjeta } from './screens/SinTarjeta'
 import { TipoDeCambio } from './screens/TipoDeCambio'
 import { CambioDePin } from './screens/CambioDePin'
+import { SignIn } from './screens/SignIn'
+import { Dashboard } from './screens/Dashboard'
 
 function App() {
 
@@ -22,6 +24,8 @@ function App() {
       <Route path='/login' element={<Login/>} />
       <Route path="/operaciones" element={<Operaciones />} />
       <Route path="/saldo" element={<ConsultarSaldo />} />
+      <Route path="/fakelogin" element={<SignIn />} />
+      <Route path="/dashboard" element={<Dashboard />} />
       {/* <Route path="/extractos" element={<Operaciones />} /> */}
       {/* <Route path="/transferencias" element={<Operaciones />} /> */}
       <Route path="/CambioDePin" element={<CambioDePin />}/>
