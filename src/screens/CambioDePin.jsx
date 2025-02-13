@@ -7,7 +7,7 @@ import '../styles/Keyboard.css'
 const teclado = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export const CambioDePin = () => {
-    const [newPin, setNewPin] = useState('');
+    const [newPin, setNewPin] = useState(0);
     const { setState } = useContext(KeyboardContext);
     const [digit, setDigit] = useState(3);
 
