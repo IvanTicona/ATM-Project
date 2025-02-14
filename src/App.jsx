@@ -1,24 +1,46 @@
-import { Route, Routes } from 'react-router'
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { RetiroRapido } from './screens/RetiroRapido'
-import { RetiroVeloz } from './screens/RetiroVeloz'
+import { Login } from './screens/Login'
+import { Operaciones } from './screens/Operaciones'
+import { ConsultarSaldo } from './screens/ConsultarSaldo'
+import { Extracto } from './screens/Extracto'
+import { CuentasTerceros } from './screens/CuentasTerceros'
+import { TransferenciaCuenta } from './screens/TransferenciaCuenta'
+import { Route, Routes } from 'react-router'
+import { VerEnPantalla } from './screens/VerEnPantalla'
+import { OtroServicio } from './screens/OtroServicio'
+import { CuentasOtrosBancos } from './screens/CuentasOtrosBancos'
+import { CuentasPropias } from './screens/CuentasPropias'
+import { LeerTarjeta } from './screens/LeerTarjeta'
+import { SinTarjeta } from './screens/SinTarjeta'
+import { TipoDeCambio } from './screens/TipoDeCambio'
+import { CambioDePin } from './screens/CambioDePin'
+import { SignIn } from './screens/SignIn'
+import { Dashboard } from './screens/Dashboard'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
     <Routes>
-
-      <Route path = "/retiroRapido" element={<RetiroRapido/>}/>
-
-      <Route path = "/retiroVeloz" element={<RetiroVeloz/>}/>
-
+      <Route path='/login' element={<Login/>} />
+      <Route path="/operaciones" element={<Operaciones />} />
+      <Route path="/saldo" element={<ConsultarSaldo />} />
+      <Route path="/fakelogin" element={<SignIn />} />
+      <Route path="/dashboard" element={<Dashboard />} />
+      {/* <Route path="/extractos" element={<Operaciones />} /> */}
+      {/* <Route path="/transferencias" element={<Operaciones />} /> */}
+      <Route path="/CambioDePin" element={<CambioDePin />}/>
+      <Route path="/TipoDeCambio" element={<TipoDeCambio />} /> 
+      {/* <Route path="/" element={<Operaciones />} /> */}
+      <Route path="/extracto" element={<Extracto />} />
+      <Route path="/cuentasTerceros" element={<CuentasTerceros />} />
+      <Route path="/cuentasOtrosBancos" element={<CuentasOtrosBancos />} />
+      <Route path="/cuentasPropias" element={<CuentasPropias />} />
+      <Route path="/verEnPantalla" element={<VerEnPantalla />} />
+      <Route path="/otroServicio" element={<OtroServicio />} />
+      <Route path="/transferenciaCuenta" element={<TransferenciaCuenta />} />
+      <Route path="/leerTarjeta" element={<LeerTarjeta />} />
+      <Route path="/sinTarjeta" element={<SinTarjeta />} />
     </Routes>
-    </>
   )
 }
 
