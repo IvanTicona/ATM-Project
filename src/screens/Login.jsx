@@ -1,26 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import { Keyboard } from "../components/Keyboard";
-import { KeyboardContext } from "../contexts/KeyboardContext";
 import { ToastContainer, toast } from "react-toastify";
+import { Keyboard } from "../components/common/Keyboard";
+import { KeyboardContext } from "../contexts/KeyboardContext";
 import "react-toastify/dist/ReactToastify.css";
-import "../styles/Button.css";
 import "../styles/Login.css";
-import { collection, getDocs } from "firebase/firestore";
-import { db } from "../services/firebase";
+import { getAccountData } from "../services/account";
 
 export const Login = () => {
   let navigate = useNavigate();
-  const { state, setState } = useContext(KeyboardContext);
-  const [accounts, setAccounts] = useState([]);
+  const { keyboardValue } = useContext(KeyboardContext);
+  const [account, setAccount] = useState({});
 
   const signIn = () => {
-    const foundAccount = accounts.find((account) => account.pin == state.pin);
-    if (foundAccount) {
-      localStorage.setItem("account", JSON.stringify(foundAccount.accountNumber));
-      localStorage.setItem("balance", JSON.stringify(foundAccount.balance));
-      localStorage.setItem("owner", JSON.stringify(foundAccount.owner));
-
+    if (account.pin === Number(keyboardValue)) {
       navigate("/operaciones");
     } else {
       toast.error("PIN incorrecto. Por favor, intente de nuevo.");
@@ -28,44 +21,21 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    const fetchAccounts = async () => {
-      try {
-        const accountsCollectionRef = collection(db, "accounts");
-        const querySnapshot = await getDocs(accountsCollectionRef);
-
-        const accountsList = querySnapshot.docs.map((doc) => ({
-          pin: doc.id,
-          ...doc.data(),
-        }));
-
-        setAccounts(accountsList);
-      } catch (e) {
-        toast.error("Error al obtener las cuentas");
-      }
+    const getAccount = async () => {
+      const data = await getAccountData();
+      setAccount(data);
     };
-
-    fetchAccounts();
-    setState(prevState => ({
-      ...prevState,
-      pin: "0000",
-    }));
+    getAccount();
   }, []);
 
   return (
     <>
-      <div>
-        <h3 className="title">Bienvenido a su propio ATM</h3>
-        <h3 className="title">Ingrese su PIN:</h3>
-      </div>
-      <h1 className="pin-container">{state.pin}</h1>
-      <button
-        className="boton"
-        onClick={() => signIn()}
-      >
-        <h3 className="texto">Ingresar</h3>
-      </button>
+      <h3 className="title-atm">Bienvenido a su propio ATM</h3>
+      <h3 className="title-atm">Ingrese su PIN</h3>
+      <h3 className="pin-container">{keyboardValue}</h3>
+
+      <Keyboard limit={4} action={signIn} exactLenght={true} />
       <ToastContainer />
-      <Keyboard />
     </>
   );
 };

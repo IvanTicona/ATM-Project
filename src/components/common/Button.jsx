@@ -7,6 +7,7 @@ export const Button = ({direccion, texto, accion}) => {
 =======
 import imagenSrc from '../../assets/nextIcon.svg'
 
+// eslint-disable-next-line react/prop-types
 export const Button = ({direccion, texto, accion}) => {
 >>>>>>> 80591aefaf243371a9f0880c9d75ad6f3bf4b335
   return (

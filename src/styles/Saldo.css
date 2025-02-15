@@ -1,15 +1,15 @@
-.div-vertical{
-    padding: 25px;
-    margin: 20px;
-    justify-content: center;
-    align-items: center;
-}
-
 .div-horizontal {
     display: flex;
     gap: 10px;
     padding: 10px;
-    margin: 10px;
+    margin: 30px;
     justify-content: center;
     align-items: center;
+}
+
+.balance {
+    font-size: 78px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0;
 }

@@ -1,15 +1,15 @@
-import React, { createContext, useState } from 'react';
+import { createContext, useState } from "react";
 
 export const KeyboardContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 export const KeyboardProvider = ({ children }) => {
-    const [state, setState] = useState({
-        pin: "0000",
-    });
+  
+  const [keyboardValue, setKeyboardValue] = useState("");
 
-    return (
-        <KeyboardContext.Provider value={{ state, setState }}>
-            {children}
-        </KeyboardContext.Provider>
-    );
+  return (
+    <KeyboardContext.Provider value={{ keyboardValue, setKeyboardValue }}>
+      {children}
+    </KeyboardContext.Provider>
+  );
 };

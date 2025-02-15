@@ -1,36 +1,47 @@
-import React from 'react'
+/* eslint-disable no-unused-vars */
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import '../styles/Button.css'
-import '../styles/Saldo.css'
+import { toast, ToastContainer } from "react-toastify";
+import { Button } from "../components/common/Button";
+import { getAccountData, accountNumber } from "../services/account";
+import "../styles/Button.css";
+import "../styles/Saldo.css";
 
 export const ConsultarSaldo = () => {
-    const saldo = localStorage.getItem('balance')
+  const [accountBalance, setAccountBalance] = useState(0);
+  const navigate = useNavigate();
 
-    let navigate = useNavigate();
+  useEffect(() => {
+    const fetchSaldo = async () => {
+      try {
+        const { balance } = await getAccountData();
+        setAccountBalance(balance);
+      } catch (e) {
+        toast.error("Error al consultar saldo");
+      }
+    };
 
-    const closeSession = () => {
-        localStorage.removeItem("account")
-        localStorage.removeItem("balance")
-        localStorage.removeItem("owner")
-    }
+    fetchSaldo();
+  }, []);
 
-    return (
-        <>
-            <div className='div-vertical'>
-                <h3 className='title'>Su saldo disponible es:</h3>
-                <h3 className='title'>{saldo} Bs</h3>
-
-                <div className='div-horizontal'>
-                    <button className='boton' onClick={() => navigate("/operaciones")}>
-                        <h3 className='texto'>Volver a operaciones</h3>
-                    </button>
-                    
-                    <button className='boton' onClick={() => {closeSession(); navigate("/login")}}>
-                        <h3 className='texto'>Terminar y cerrar</h3>
-                    </button>
-                </div>
-            </div>
-        </>
-    )
-}
-
+  return (
+    <>
+      <h3 className="title-atm">SU SALDO DISPONIBLE ES:</h3>
+      <h3 className="balance">Cuenta: {accountNumber}</h3>
+      <h3 className="balance">Bs. {accountBalance}</h3>
+      <div className="div-horizontal">
+        <Button
+          direccion="izquierda"
+          texto="Otro servicio"
+          accion={() => navigate("/operaciones")}
+        />
+        <Button
+          direccion="derecha"
+          texto="Salir"
+          accion={() => navigate("/login")}
+        />
+      </div>
+      <ToastContainer />
+    </>
+  );
+};

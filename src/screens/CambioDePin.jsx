@@ -1,15 +1,15 @@
 import React, { useState, useContext } from 'react';
-import { KeyboardContext } from '../contexts/KeyboardContext';
-import { ToastContainer, toast } from 'react-toastify';
+import { Keyboard } from "../components/common/Keyboard";
+import { KeyboardContext } from "../contexts/KeyboardContext";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/Keyboard.css'
-
-const teclado = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+import "../styles/Login.css";
 
 export const CambioDePin = () => {
     const [newPin, setNewPin] = useState(0);
     const { setState } = useContext(KeyboardContext);
-    const [digit, setDigit] = useState(3);
+    const { keyboardValue } = useContext(KeyboardContext);
 
     const notify = (message) => {
         toast(message, {
@@ -19,13 +19,16 @@ export const CambioDePin = () => {
         });
     };
 
+    // Implementar correctamente esta función
     const confirmarNuevoPIN = () => {
         if (newPin === "1234") {
-            notify("Por favor, ingrese un PIN distinto al actual.");
+            toast.error("Por favor, ingrese un PIN distinto al actual.");
         } else if (newPin.length < 4) {
+            // Keyboard ya verifica que el input sean 4 digitos, esta condicional resulta redundante
             notify("El PIN debe tener 4 dígitos.");
         } else {
-            notify("Nuevo PIN registrado.");
+            // Hacer el cambio del pin sobre la BD
+            toast.success("Nuevo PIN registrado.");
             setState(prevState => ({ ...prevState, pin: newPin }));
             navigate("/operaciones");
         }
@@ -33,34 +36,9 @@ export const CambioDePin = () => {
 
     return (
         <>
-          <>
-          <h2>INGRESAR NUEVO PIN</h2>
-            <div className='keyboard'>
-                <p className='titlePin'>‎{newPin.toString().slice(0,3-digit)}</p>
-                {
-                    teclado.map((numero) => {
-                        return (
-                            <button className='button'key={numero} onClick={() => {
-                                if (digit >= 0) {
-                                    setNewPin(newPin + numero * Math.pow(10, digit));
-                                    setDigit(digit - 1);
-                                } else {
-                                    toast("No se pueden introducir más de 4 dígitos.")
-                                }
-                            }}>
-                                {numero}
-                            </button>
-                        );
-                    })
-                }
-                <button className='button-cancel' onClick={()=>{setNewPin(0);setDigit(3)}}>
-                X
-                </button>
-                <button className='button-accept' onClick={()=>{setNewPin(0);setDigit(3);handleButtonClick()}}>
-                ✔
-                </button>
-            </div>
-        </>
+            <h3 className='title-atm'>INGRESE SU NUEVO PIN:</h3>
+            <h3 className="pin-container">{keyboardValue}</h3>
+            <Keyboard limit={4} action={confirmarNuevoPIN} exactLenght={true} />
             <ToastContainer />
         </>
     );
