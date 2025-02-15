@@ -1,6 +1,5 @@
 import '../../styles/Button.css'
 import imagenSrc from '../../assets/nextIcon.svg'
-
 export const Button = ({direccion, texto, accion}) => {
   return (
     <div onClick={accion} className="boton">

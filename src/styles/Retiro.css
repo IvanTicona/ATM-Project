@@ -1,15 +1,17 @@
-.pin-container{
-  background-color: #428457;
-  min-width: 250px;
+.amount {
+  background-color: #151515;
+  min-width: 220px;
   min-height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: #9ad69c;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: #ffffff;
   font-family: "Roboto Mono", monospace;
   font-size: 60px;
   letter-spacing: 10px;
-  border: solid 6px;
-  border-color: #085a08;
+  border: solid 2px;
+  border-color: rgb(235, 160, 22);
   border-radius: 20px;
 }

@@ -1,47 +1,57 @@
-import './App.css'
-import { Login } from './screens/Login'
-import { Operaciones } from './screens/Operaciones'
-import { ConsultarSaldo } from './screens/ConsultarSaldo'
-import { Extracto } from './screens/Extracto'
-import { CuentasTerceros } from './screens/CuentasTerceros'
-import { TransferenciaCuenta } from './screens/TransferenciaCuenta'
-import { Route, Routes } from 'react-router'
-import { VerEnPantalla } from './screens/VerEnPantalla'
-import { OtroServicio } from './screens/OtroServicio'
-import { CuentasOtrosBancos } from './screens/CuentasOtrosBancos'
-import { CuentasPropias } from './screens/CuentasPropias'
-import { LeerTarjeta } from './screens/LeerTarjeta'
-import { SinTarjeta } from './screens/SinTarjeta'
-import { TipoDeCambio } from './screens/TipoDeCambio'
-import { CambioDePin } from './screens/CambioDePin'
-import { SignIn } from './screens/SignIn'
-import { Dashboard } from './screens/Dashboard'
+import { Route, Routes } from "react-router";
+import "./App.css";
+import {
+  CambioDePin,
+  ConsultarSaldo,
+  CuentasOtrosBancos,
+  CuentasPropias,
+  CuentasTerceros,
+  Extracto,
+  LeerTarjeta,
+  Login,
+  Operaciones,
+  OtroServicio,
+  RetiroRapido,
+  Retiro,
+  SinTarjeta,
+  TipoDeCambio,
+  TransferenciaCuenta,
+  VerEnPantalla,
+} from "./screens";
+
+import { Keyboard } from "./components/common/Keyboard";
 
 function App() {
-
   return (
     <Routes>
-      <Route path='/login' element={<Login/>} />
+      <Route path="/prueba" element={<Keyboard limit={4} />} />
+
+      <Route path="/" element={<Operaciones />} />
+      <Route path="/login" element={<Login />} />
       <Route path="/operaciones" element={<Operaciones />} />
+
+       <Route path="/rapido" element={<RetiroRapido />} /> 
       <Route path="/saldo" element={<ConsultarSaldo />} />
-      <Route path="/fakelogin" element={<SignIn />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      {/* <Route path="/extractos" element={<Operaciones />} /> */}
-      {/* <Route path="/transferencias" element={<Operaciones />} /> */}
-      <Route path="/CambioDePin" element={<CambioDePin />}/>
-      <Route path="/TipoDeCambio" element={<TipoDeCambio />} /> 
-      {/* <Route path="/" element={<Operaciones />} /> */}
+      <Route path="/retiro" element={<Retiro />} /> 
       <Route path="/extracto" element={<Extracto />} />
-      <Route path="/cuentasTerceros" element={<CuentasTerceros />} />
-      <Route path="/cuentasOtrosBancos" element={<CuentasOtrosBancos />} />
-      <Route path="/cuentasPropias" element={<CuentasPropias />} />
-      <Route path="/verEnPantalla" element={<VerEnPantalla />} />
-      <Route path="/otroServicio" element={<OtroServicio />} />
-      <Route path="/transferenciaCuenta" element={<TransferenciaCuenta />} />
-      <Route path="/leerTarjeta" element={<LeerTarjeta />} />
-      <Route path="/sinTarjeta" element={<SinTarjeta />} />
+      {/* <Route path="/servicios" element={<Servicios />} /> */}
+      <Route path="/transferencia" element={<TransferenciaCuenta />} />
+      <Route path="/tipocambio" element={<TipoDeCambio />} />
+      <Route path="/pin" element={<CambioDePin />} />
+
+      <Route path="/ver-en-pantalla" element={<VerEnPantalla />} />
+      <Route path="/cuentas-terceros" element={<CuentasTerceros />} />
+      <Route path="/cuentas-otros-bancos" element={<CuentasOtrosBancos />} />
+      <Route path="/cuentas-propias" element={<CuentasPropias />} />
+
+      {/* Pantalla para de confirmacion SALIR */}
+      <Route path="/otro-servicio" element={<OtroServicio />} />
+
+      {/* Pantallas de Transicion */}
+      <Route path="/leer-tarjeta" element={<LeerTarjeta />} />
+      <Route path="/sin-tarjeta" element={<SinTarjeta />} />
     </Routes>
-  )
+  );
 }
 
-export default App
+export default App;
