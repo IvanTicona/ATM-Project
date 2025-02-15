@@ -1,14 +1,8 @@
 .opciones{
-  /* background-color: aqua; */
   width: 900px;
-  height: 500px;
+  height: 550px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 30px;
-}
-
-.title{
-  font-size: 50px;
-  font-weight: bold;
+  align-items: center;
 }

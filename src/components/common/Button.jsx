@@ -1,6 +1,7 @@
 import '../../styles/Button.css'
 import imagenSrc from '../../assets/nextIcon.svg'
 
+// eslint-disable-next-line react/prop-types
 export const Button = ({direccion, texto, accion}) => {
   return (
     <div onClick={accion} className="boton">
