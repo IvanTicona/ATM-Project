@@ -45,10 +45,6 @@ export const Login = () => {
     };
 
     fetchAccounts();
-    setState(prevState => ({
-      ...prevState,
-      pin: "0000",
-    }));
   }, []);
 
   return (
