@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Keyboard } from "../components/common/Keyboard"
 import { KeyboardContext } from "../contexts/KeyboardContext";
 import "../styles/Retiro.css";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import { withDraw } from "../services/transactionService";
 import { accountNumber } from "../services/account";
 import { useNavigate } from "react-router";
@@ -19,9 +19,8 @@ export const Retiro = () => {
         toast.error("Por favor, ingresa un monto válido.");
         return;
       }
+      toast.info("Enviada solicitud para el retiro de: " + keyboardValue + " Bs.");
       await withDraw(accountNumber, numericAmount);
-      setKeyboardValue("");
-      // toast.info("Depósito realizado con éxito.");
       navigate("/operaciones");
     } catch (error) {
       toast.error("Error: " + error.message);
@@ -32,9 +31,9 @@ export const Retiro = () => {
   return (
     <>
       <h3 className="title-atm">INGRESE EL MONTO QUE DESEA RETIRAR:</h3>
-      <h3 className="amount">{ keyboardValue }</h3>
+      <h3 className="amount">{keyboardValue}</h3>
+      <Keyboard action={handleSubmit} />
       <ToastContainer />
-      <Keyboard action={handleSubmit}/>
     </>
   )
 }

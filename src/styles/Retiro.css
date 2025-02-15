@@ -1,4 +1,5 @@
-.amount{
+.amount {
+  background-color: #151515;
   min-width: 220px;
   min-height: 100px;
   display: flex;
