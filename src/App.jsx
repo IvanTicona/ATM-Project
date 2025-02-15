@@ -6,6 +6,7 @@ import {
   CuentasOtrosBancos,
   CuentasPropias,
   CuentasTerceros,
+  Deposito,
   Extracto,
   LeerTarjeta,
   Login,
@@ -20,7 +21,7 @@ import {
 } from "./screens";
 
 import { Keyboard } from "./components/common/Keyboard";
-
+import { VerMovimientos } from "./screens/VerMovimientos";
 function App() {
   return (
     <Routes>
@@ -30,14 +31,15 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/operaciones" element={<Operaciones />} />
 
-       <Route path="/rapido" element={<RetiroRapido />} /> 
+      <Route path="/rapido" element={<RetiroRapido />} /> 
       <Route path="/saldo" element={<ConsultarSaldo />} />
       <Route path="/retiro" element={<Retiro />} /> 
+      <Route path="/deposito" element={<Deposito />} />
       <Route path="/extracto" element={<Extracto />} />
-      {/* <Route path="/servicios" element={<Servicios />} /> */}
       <Route path="/transferencia" element={<TransferenciaCuenta />} />
       <Route path="/tipocambio" element={<TipoDeCambio />} />
       <Route path="/pin" element={<CambioDePin />} />
+      <Route path="/movimientos" element={<VerMovimientos />} />
 
       <Route path="/ver-en-pantalla" element={<VerEnPantalla />} />
       <Route path="/cuentas-terceros" element={<CuentasTerceros />} />

@@ -1,3 +1,4 @@
+import React from 'react';
 import { useNavigate } from 'react-router'; 
 import { Button } from '../components/common/Button';
 import '../styles/Extracto.css'; 

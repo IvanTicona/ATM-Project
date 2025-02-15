@@ -1,0 +1,31 @@
+p{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+h3{
+    font-size: 20px;
+    font-weight: bold;
+    align-self: center;
+    color: #000000;
+    margin-bottom: 15px;
+    padding: 0;
+}
+
+.transfer-container{
+    display: flex;
+    flex-direction: column;
+    border-radius: 25px;
+    padding: 5px;
+    align-items: start;
+    justify-content: center;
+    width: 350px;
+    height: 200px;
+    background-color: #787070;
+    background: #e0e0e0;
+    box-shadow: inset 17px 17px 54px #747474,
+            inset -17px -17px 54px #ffffff;
+}

@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect } from "react";
 import '../App.css'
 import { useNavigate } from 'react-router';
@@ -8,7 +9,7 @@ export const LeerTarjeta = () => {
   let navigate = useNavigate();
   useEffect(() => {
     const timer = setTimeout(() => {
-      navigate("/otroServicio");
+      navigate("/login");
     }, 3000);
 
     return () => clearTimeout(timer);
