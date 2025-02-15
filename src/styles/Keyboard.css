@@ -1,5 +1,5 @@
-.keyboard{
-    background-color: #484848;
+.keyboard {
+    background-color: #444444;
     display: grid;
     grid-template-columns: repeat(3, 60px);
     grid-template-rows: repeat(4, 60px);
@@ -9,9 +9,11 @@
     padding: 25px;
     border-radius: 15px;
     user-select: none;
+    border: solid 5px;
+    border-color: #343434;
 }
 
-.button{
+.button {
     background-color: #ffffff;
     width: 60px;
     height: 60px;
@@ -28,27 +30,30 @@
     background-color: #b4b4b4;
 }
 
-.button-accept{
+.button-accept {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #1cb041;
 }
-.button-accept:hover{
+
+.button-accept:hover {
     background-color: #1f8939;
 }
 
-.button-cancel{
+.button-cancel {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #f81919b9;
 }
-.button-cancel:hover{
+
+.button-cancel:hover {
     background-color: #f819198c;
 }
 
-.cancelImg, .checkImg{
+.cancelImg,
+.checkImg {
     width: 40px;
     height: 40px;
 }

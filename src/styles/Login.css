@@ -9,7 +9,7 @@
   font-family: "Roboto Mono", monospace;
   font-size: 60px;
   letter-spacing: 10px;
-  border: solid 2px;
-  border-color: rgb(0, 128, 0);
+  border: solid 6px;
+  border-color: #085a08;
   border-radius: 20px;
 }

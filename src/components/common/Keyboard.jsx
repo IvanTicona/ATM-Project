@@ -3,15 +3,19 @@ import "../../styles/Keyboard.css";
 import cancelBtn from "../../assets/cancelBtn.svg";
 import checkBtn from "../../assets/checkBtn.svg";
 import { KeyboardContext } from "../../contexts/KeyboardContext";
+import { ToastContainer, toast } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
-export const Keyboard = ({ limit = 999999999, action = () => {} }) => {
+export const Keyboard = ({ limit = 999999999, action = () => { } }) => {
 
   const teclado = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const {keyboardValue, setKeyboardValue } = useContext(KeyboardContext);
+  const { keyboardValue, setKeyboardValue } = useContext(KeyboardContext);
 
   const numberClick = (numero) => {
-    if (keyboardValue.length >= limit) return;
+    if (keyboardValue.length >= limit) {
+      toast.error("El número máximo de dígitos es " + limit)
+      return;
+    }
     setKeyboardValue((preValue) => preValue + numero);
   }
 
@@ -21,6 +25,7 @@ export const Keyboard = ({ limit = 999999999, action = () => {} }) => {
 
   const acceptClick = () => {
     action();
+    setKeyboardValue("");
   }
 
   return (
@@ -42,8 +47,8 @@ export const Keyboard = ({ limit = 999999999, action = () => {} }) => {
       >
         <img src={cancelBtn} alt="cancel" className="cancelImg" />
       </button>
-      <button 
-        className="button-accept button" 
+      <button
+        className="button-accept button"
         onClick={() => acceptClick()}
       >
         <img src={checkBtn} alt="accept" className="checkImg" />
