@@ -6,7 +6,6 @@ export { ConsultarSaldo } from './ConsultarSaldo';
 export { CuentasOtrosBancos } from './CuentasOtrosBancos';
 export { CuentasPropias } from './CuentasPropias';
 export { CuentasTerceros } from './CuentasTerceros';
-export { Dashboard } from './Dashboard';
 export { Extracto } from './Extracto';
 export { Retiro } from './Retiro';
 export { LeerTarjeta } from './LeerTarjeta';
