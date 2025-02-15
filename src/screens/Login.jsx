@@ -34,7 +34,7 @@ export const Login = () => {
       <h3 className="title-atm">Ingrese su PIN</h3>
       <h3 className="pin-container">{keyboardValue}</h3>
 
-      <Keyboard limit={4} action={signIn} />
+      <Keyboard limit={4} action={signIn} exactLenght={true} />
       <ToastContainer />
     </>
   );
