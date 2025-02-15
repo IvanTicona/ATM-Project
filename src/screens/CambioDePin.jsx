@@ -1,17 +1,15 @@
 import React, { useState, useContext } from 'react';
-import { useNavigate } from "react-router-dom"; // 🔹 Importar useNavigate
-import { KeyboardContext } from '../contexts/KeyboardContext';
-import { ToastContainer, toast } from 'react-toastify';
+import { Keyboard } from "../components/common/Keyboard";
+import { KeyboardContext } from "../contexts/KeyboardContext";
+import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-import '../styles/Keyboard.css';
-import { Keyboard } from '../components/Keyboard';
-
+import '../styles/Keyboard.css'
+import "../styles/Login.css";
 
 export const CambioDePin = () => {
-    const [newPin, setNewPin] = useState(""); // 🔹 Cambiado a string
+    const [newPin, setNewPin] = useState(0);
     const { setState } = useContext(KeyboardContext);
-    const [digit, setDigit] = useState(3);
-    const navigate = useNavigate(); // 🔹 Definir navigate
+    const { keyboardValue } = useContext(KeyboardContext);
 
     const notify = (message) => {
         toast(message, {
@@ -21,13 +19,16 @@ export const CambioDePin = () => {
         });
     };
 
+    // Implementar correctamente esta función
     const confirmarNuevoPIN = () => {
         if (newPin === "1234") {
-            notify("Por favor, ingrese un PIN distinto al actual.");
+            toast.error("Por favor, ingrese un PIN distinto al actual.");
         } else if (newPin.length < 4) {
+            // Keyboard ya verifica que el input sean 4 digitos, esta condicional resulta redundante
             notify("El PIN debe tener 4 dígitos.");
         } else {
-            notify("Nuevo PIN registrado.");
+            // Hacer el cambio del pin sobre la BD
+            toast.success("Nuevo PIN registrado.");
             setState(prevState => ({ ...prevState, pin: newPin }));
             navigate("/operaciones");
         }
@@ -35,11 +36,9 @@ export const CambioDePin = () => {
 
     return (
         <>
-            <h2>INGRESAR NUEVO PIN</h2>
-            <Keyboard
-            limit = {4}
-            
-            />
+            <h3 className='title-atm'>INGRESE SU NUEVO PIN:</h3>
+            <h3 className="pin-container">{keyboardValue}</h3>
+            <Keyboard limit={4} action={confirmarNuevoPIN} exactLenght={true} />
             <ToastContainer />
         </>
     );

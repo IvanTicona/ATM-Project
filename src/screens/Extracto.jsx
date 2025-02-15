@@ -8,7 +8,7 @@ export const Extracto = () => {
     <div className='extractos-container'>
       <h1>Extracto</h1>
       <div className="buttons-container">
-        <Button texto="Ver en Pantalla" direccion="derecha" accion={() => navigate('/verEnPantalla')} />
+        <Button texto="Ver en Pantalla" direccion="derecha" accion={() => navigate('/ver-en-pantalla')} />
         <Button texto="Imprimir" direccion="derecha" accion={() => navigate('/imprimir')} />
       </div>
     </div>

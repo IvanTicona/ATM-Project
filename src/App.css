@@ -1,10 +1,18 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  /* background-color: blueviolet; */
+  width: 70vw;
+  height: 90vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
+  overflow: hidden;
+  color: #fff;
+}
+
+.title-atm{
+  /* background-color: aqua; */
+  font-size: 3rem;
+  margin: 0;
+  padding: 0;
 }
