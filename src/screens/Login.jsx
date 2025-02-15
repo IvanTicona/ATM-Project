@@ -1,26 +1,19 @@
-/* eslint-disable no-unused-vars */
 import { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
-import { collection, getDocs } from "firebase/firestore";
 import { Keyboard } from "../components/common/Keyboard";
 import { KeyboardContext } from "../contexts/KeyboardContext";
-import { db } from "../services/firebase";
 import "react-toastify/dist/ReactToastify.css";
 import "../styles/Login.css";
+import { getAccountData } from "../services/account";
 
 export const Login = () => {
   let navigate = useNavigate();
   const { keyboardValue } = useContext(KeyboardContext);
-  const [accounts, setAccounts] = useState([]);
+  const [account, setAccount] = useState({});
 
   const signIn = () => {
-    const foundAccount = accounts.find((account) => account.pin == keyboardValue);
-    if (foundAccount) {
-      localStorage.setItem("account", JSON.stringify(foundAccount.accountNumber));
-      localStorage.setItem("balance", JSON.stringify(foundAccount.balance));
-      localStorage.setItem("owner", JSON.stringify(foundAccount.owner));
-      
+    if (account.pin === Number(keyboardValue)) {
       navigate("/operaciones");
     } else {
       toast.error("PIN incorrecto. Por favor, intente de nuevo.");
@@ -28,23 +21,11 @@ export const Login = () => {
   };
 
   useEffect(() => {
-    const fetchAccounts = async () => {
-      try {
-        const accountsCollectionRef = collection(db, "accounts");
-        const querySnapshot = await getDocs(accountsCollectionRef);
-
-        const accountsList = querySnapshot.docs.map((doc) => ({
-          pin: doc.id,
-          ...doc.data(),
-        }));
-
-        setAccounts(accountsList);
-      } catch (e) {
-        toast.error("Error al obtener las cuentas");
-      }
+    const getAccount = async () => {
+      const data = await getAccountData();
+      setAccount(data);
     };
-
-    fetchAccounts();
+    getAccount();
   }, []);
 
   return (
