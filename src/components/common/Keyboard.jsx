@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import "../../styles/Keyboard.css";
 import cancelBtn from "../../assets/cancelBtn.svg";
 import checkBtn from "../../assets/checkBtn.svg";
