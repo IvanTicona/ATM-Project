@@ -27,7 +27,6 @@ export const ConsultarSaldo = () => {
   return (
     <>
       <h3 className="title-atm">SU SALDO DISPONIBLE ES:</h3>
-      <ToastContainer />
       <h3 className="balance">Cuenta: {accountNumber}</h3>
       <h3 className="balance">Bs. {accountBalance}</h3>
       <div className="div-horizontal">
@@ -39,9 +38,10 @@ export const ConsultarSaldo = () => {
         <Button
           direccion="derecha"
           texto="Salir"
-          accion={() => navigate("/")}
+          accion={() => navigate("/login")}
         />
       </div>
+      <ToastContainer />
     </>
   );
 };
