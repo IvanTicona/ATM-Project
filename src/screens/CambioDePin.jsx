@@ -1,15 +1,17 @@
 import React, { useState, useContext } from 'react';
+import { useNavigate } from "react-router-dom"; // 🔹 Importar useNavigate
 import { KeyboardContext } from '../contexts/KeyboardContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import '../styles/Keyboard.css'
+import '../styles/Keyboard.css';
+import { Keyboard } from '../components/Keyboard';
 
-const teclado = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
 export const CambioDePin = () => {
-    const [newPin, setNewPin] = useState(0);
+    const [newPin, setNewPin] = useState(""); // 🔹 Cambiado a string
     const { setState } = useContext(KeyboardContext);
     const [digit, setDigit] = useState(3);
+    const navigate = useNavigate(); // 🔹 Definir navigate
 
     const notify = (message) => {
         toast(message, {
@@ -33,34 +35,11 @@ export const CambioDePin = () => {
 
     return (
         <>
-          <>
-          <h2>INGRESAR NUEVO PIN</h2>
-            <div className='keyboard'>
-                <p className='titlePin'>‎{newPin.toString().slice(0,3-digit)}</p>
-                {
-                    teclado.map((numero) => {
-                        return (
-                            <button className='button'key={numero} onClick={() => {
-                                if (digit >= 0) {
-                                    setNewPin(newPin + numero * Math.pow(10, digit));
-                                    setDigit(digit - 1);
-                                } else {
-                                    toast("No se pueden introducir más de 4 dígitos.")
-                                }
-                            }}>
-                                {numero}
-                            </button>
-                        );
-                    })
-                }
-                <button className='button-cancel' onClick={()=>{setNewPin(0);setDigit(3)}}>
-                X
-                </button>
-                <button className='button-accept' onClick={()=>{setNewPin(0);setDigit(3);handleButtonClick()}}>
-                ✔
-                </button>
-            </div>
-        </>
+            <h2>INGRESAR NUEVO PIN</h2>
+            <Keyboard
+            limit = {4}
+            
+            />
             <ToastContainer />
         </>
     );
