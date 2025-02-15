@@ -1,16 +1,15 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Keyboard } from "../components/common/Keyboard"
 import { KeyboardContext } from "../contexts/KeyboardContext";
 import "../styles/Retiro.css";
 import { toast, ToastContainer } from "react-toastify";
 import { withDraw } from "../services/transactionService";
-import { getAccountData } from "../services/account";
+import { accountNumber } from "../services/account";
 import { useNavigate } from "react-router";
 
 export const Retiro = () => {
 
   const { keyboardValue, setKeyboardValue } = useContext(KeyboardContext);
-  const [accountData, setAccountData] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
@@ -20,7 +19,7 @@ export const Retiro = () => {
         toast.error("Por favor, ingresa un monto válido.");
         return;
       }
-      await withDraw(accountData.accountNumber, numericAmount);
+      await withDraw(accountNumber, numericAmount);
       setKeyboardValue("");
       // toast.info("Depósito realizado con éxito.");
       navigate("/operaciones");
@@ -29,18 +28,6 @@ export const Retiro = () => {
       setKeyboardValue("");
     }
   };
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const data = await getAccountData();
-        setAccountData(data);
-      } catch (error) {
-        console.error("Error al obtener la cuenta del usuario:", error);
-      }
-    };
-    fetchUserData();
-  }, []);
 
   return (
     <>
