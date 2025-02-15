@@ -7,6 +7,7 @@ export { CuentasOtrosBancos } from './CuentasOtrosBancos';
 export { CuentasPropias } from './CuentasPropias';
 export { CuentasTerceros } from './CuentasTerceros';
 export { Extracto } from './Extracto';
+export { RetiroRapido} from './RetiroRapido';
 export { Retiro } from './Retiro';
 export { LeerTarjeta } from './LeerTarjeta';
 export { Login } from './Login';

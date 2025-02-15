@@ -4,7 +4,6 @@ import { BrowserRouter, Route, Routes } from "react-router";
 import './index.css'
 import App from './App.jsx'
 import { KeyboardProvider } from './contexts/KeyboardContext.jsx'
-import { BrowserRouter } from 'react-router'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

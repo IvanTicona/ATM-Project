@@ -11,6 +11,7 @@ import {
   Login,
   Operaciones,
   OtroServicio,
+  RetiroRapido,
   Retiro,
   SinTarjeta,
   TipoDeCambio,
@@ -29,7 +30,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/operaciones" element={<Operaciones />} />
 
-      {/* <Route path="/rapido" element={<RetiroRapido />} /> */}
+       <Route path="/rapido" element={<RetiroRapido />} /> 
       <Route path="/saldo" element={<ConsultarSaldo />} />
       <Route path="/retiro" element={<Retiro />} /> 
       <Route path="/extracto" element={<Extracto />} />
