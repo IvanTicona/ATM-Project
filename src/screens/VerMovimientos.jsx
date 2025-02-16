@@ -11,6 +11,7 @@ export const VerMovimientos = () => {
     const fetchAccountData = async () => {
       try {
         const transfers = await getTransactions();
+        transfers.sort((a, b) => b.date - a.date);
         setTransfers(transfers);
       } catch (error) {
         console.error(error);
