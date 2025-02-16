@@ -10,18 +10,6 @@ export const Operaciones = () => {
 
   let navigate = useNavigate();
 
-  useEffect(()=>{
-    const fetchAccountData = async () => {
-      try {
-        const transfers = await getTransactions();
-        console.log(transfers);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchAccountData();
-  },[])
-
   return (
     <>
       <h3 className='title-atm'>SELECCIONE</h3>
