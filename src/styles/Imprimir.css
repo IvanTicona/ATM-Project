@@ -1,0 +1,21 @@
+.imprimir-container {
+    position: absolute; 
+    top: -9999px;
+    left: -9999px;
+    padding: 10px;
+    width: 300px; 
+}
+.imprimir-text {
+    font-size: 16px;
+    color: #333;
+    padding: 8px 0;
+    margin: 10px 0;
+}
+.imprimir-text span {
+    font-weight: bold;
+}
+.divider {
+    height: 1px;
+    background-color: #ddd;
+    margin: 10px 0;
+}
