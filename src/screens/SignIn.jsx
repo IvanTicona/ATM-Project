@@ -1,4 +1,5 @@
 // src/components/Login.js
+import React from 'react'
 import { useEffect, useState } from 'react';
 import { auth } from '../services/firebase';
 import { signInWithEmailAndPassword } from 'firebase/auth/web-extension';

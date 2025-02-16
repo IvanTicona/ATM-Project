@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import React, { useContext } from "react";
 import "../../styles/Keyboard.css";
 import cancelBtn from "../../assets/cancelBtn.svg";
 import checkBtn from "../../assets/checkBtn.svg";
@@ -6,7 +6,7 @@ import { KeyboardContext } from "../../contexts/KeyboardContext";
 import { ToastContainer, toast } from "react-toastify";
 
 // eslint-disable-next-line react/prop-types
-export const Keyboard = ({ limit = 999999999, action = () => { }, exactLenght = false }) => {
+export const Keyboard = ({ limit = 10, action = () => { }, exactLenght = false }) => {
 
   const teclado = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
   const { keyboardValue, setKeyboardValue } = useContext(KeyboardContext);

@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-unused-vars */
+import React from 'react'
 import '../styles/VerEnPantalla.css'; 
 import { useNavigate } from 'react-router';
 import { Button } from '../components/common/Button';
@@ -49,8 +49,8 @@ export const VerEnPantalla = () => {
       </div>
 
       <div className="buttons-container">
-        <Button texto='Otro servicio' direccion='derecha' accion={()=> navigate('/otroServicio')} />
-        <Button texto='Salir' direccion='derecha' accion={()=> navigate('/leerTarjeta')} />
+        <Button texto='Otro servicio' direccion='derecha' accion={()=> navigate('/otro-servicio')} />
+        <Button texto='Salir' direccion='derecha' accion={()=> navigate('/leer-tarjeta')} />
       </div>
     </>
   );

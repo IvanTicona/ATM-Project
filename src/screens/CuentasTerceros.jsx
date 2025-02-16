@@ -25,8 +25,8 @@ export const CuentasTerceros = () => {
         placeholder="Ingresa el número de cuenta" 
       />
       <div>Cuenta ingresada: {cuenta}</div>
-      <Button texto='Correcto' direccion='izquierda' accion={()=> navigate('/ingresarMonto')}/>
-      <Button texto='Incorrecto' direccion='izquierda' accion={()=> navigate('/ingresarMonto')}/>
+      <Button texto='Correcto' direccion='izquierda' accion={()=> navigate('/ingresar-monto')}/>
+      <Button texto='Incorrecto' direccion='izquierda' accion={()=> navigate('/ingresar-monto')}/>
 
     </>
   );

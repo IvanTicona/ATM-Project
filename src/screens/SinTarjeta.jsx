@@ -1,3 +1,4 @@
+import React from 'react'
 import { useEffect } from "react";
 import '../App.css'
 import { useNavigate } from "react-router";
@@ -9,7 +10,7 @@ export const SinTarjeta = () => {
 
   useEffect(() => {
     const handleKeyPress = (event) => {
-      navigate("/login"); 
+      navigate("/leer-tarjeta"); 
     };
 
     window.addEventListener("keydown", handleKeyPress);

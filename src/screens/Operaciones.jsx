@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router'
 import { Button } from '../components/common/Button'
 import { opciones } from '../utils/opciones';
 import '../styles/Operaciones.css'
+import { useEffect } from 'react';
+import { getTransactions } from '../services/account';
 
 
 export const Operaciones = () => {

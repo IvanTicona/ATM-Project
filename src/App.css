@@ -6,12 +6,12 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  overflow: hidden;
-  color: #fff;
+  /* overflow: hidden; */
 }
 
 .title-atm{
   /* background-color: aqua; */
+  color: #fff;
   font-size: 3rem;
   margin: 0;
   padding: 0;
