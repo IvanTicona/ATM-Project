@@ -1,45 +1,53 @@
-import React, { useState, useContext } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useState, useContext, useEffect } from "react";
 import { Keyboard } from "../components/common/Keyboard";
 import { KeyboardContext } from "../contexts/KeyboardContext";
 import { ToastContainer, toast } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
-import '../styles/Keyboard.css'
+import "react-toastify/dist/ReactToastify.css";
+import "../styles/Keyboard.css";
 import "../styles/Login.css";
+import { getAccountData, updateAccountData } from "../services/account";
 
 export const CambioDePin = () => {
-    const [newPin, setNewPin] = useState(0);
-    const { setState } = useContext(KeyboardContext);
-    const { keyboardValue } = useContext(KeyboardContext);
 
-    const notify = (message) => {
-        toast(message, {
-            autoClose: 5000,
-            closeOnClick: true,
-            progress: undefined,
-        });
+  const [accountData, setAccountData] = useState({});
+  const { keyboardValue } = useContext(KeyboardContext);
+
+  const confirmarNuevoPIN = async () => {
+    if (keyboardValue.length < 4) {
+      toast.error("El PIN debe tener 4 dígitos");
+      return;
+    } else if (Number(keyboardValue) === accountData.pin) {
+      toast.error("El nuevo PIN no puede ser igual al anterior");
+      return;
+    }
+    const newData = { ...accountData, pin: Number(keyboardValue) };
+    try {
+      await updateAccountData(newData);
+      toast.success("PIN actualizado correctamente");
+    } catch (e) {
+      toast.error("Error al actualizar PIN");
+    }
+  };
+
+  useEffect(() => {
+    const fetchAccountData = async () => {
+      try {
+        const data = await getAccountData();
+        setAccountData(data);
+      } catch (e) {
+        toast.error("Error al obtener datos de la cuenta");
+      }
     };
+    fetchAccountData();
+  }, []);
 
-    // Implementar correctamente esta función
-    const confirmarNuevoPIN = () => {
-        if (newPin === "1234") {
-            toast.error("Por favor, ingrese un PIN distinto al actual.");
-        } else if (newPin.length < 4) {
-            // Keyboard ya verifica que el input sean 4 digitos, esta condicional resulta redundante
-            notify("El PIN debe tener 4 dígitos.");
-        } else {
-            // Hacer el cambio del pin sobre la BD
-            toast.success("Nuevo PIN registrado.");
-            setState(prevState => ({ ...prevState, pin: newPin }));
-            navigate("/operaciones");
-        }
-    };
-
-    return (
-        <>
-            <h3 className='title-atm'>INGRESE SU NUEVO PIN:</h3>
-            <h3 className="pin-container">{keyboardValue}</h3>
-            <Keyboard limit={4} action={confirmarNuevoPIN} exactLenght={true} />
-            <ToastContainer />
-        </>
-    );
+  return (
+    <>
+      <h3 className="title-atm">INGRESE SU NUEVO PIN:</h3>
+      <h3 className="pin-container">{keyboardValue}</h3>
+      <Keyboard limit={4} action={confirmarNuevoPIN} exactLenght={true} />
+      <ToastContainer />
+    </>
+  );
 };

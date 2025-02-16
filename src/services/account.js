@@ -1,4 +1,4 @@
-import { collection, doc, getDoc, getDocs, query, where } from "firebase/firestore";
+import { collection, doc, getDoc, getDocs, query, updateDoc, where } from "firebase/firestore";
 import { db } from "./firebase";
 
 // Cuentas
@@ -29,4 +29,22 @@ export const getTransactions = async () => {
   const q = query(collection(db, "transactions"), where("userID", "==", accountNumber));
   const querySnapshot = await getDocs(q);
   return querySnapshot.docs.map(doc => doc.data());
+}
+
+export const updateAccountData = async (newData) => {
+  // Actualizar la cuenta en la base de datos
+  const docRef = doc(db, "accounts", accountNumber);
+  try {
+    await updateDoc(docRef, newData);
+  } catch {
+    throw new Error("Error al actualizar la cuenta");
+  }
+}
+
+export const validateAccount = async (toAccountNumber) => {
+  // Validar que la cuenta de destino exista
+  const q = query(collection(db, "accounts"));
+  const querySnapshot = await getDocs(q);
+  const accounts = querySnapshot.docs.map(doc => doc.id);
+  return accounts.includes(toAccountNumber);
 }
