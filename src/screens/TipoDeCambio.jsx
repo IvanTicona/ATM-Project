@@ -11,6 +11,7 @@ export const TipoDeCambio = () => {
       <div>
         <h3 className="title-atm">Tipo de Cambio</h3>
         <CambioComponent divisa="Dólar" compra={6.95} venta={6.97}/>
+        <CambioComponent divisa="Euro" compra={7.21} venta={7.23}/>
         <CambioComponent divisa="Sol" compra={1.85} venta={1.86}/>
       </div>
       <OpcionesDeSalida />
