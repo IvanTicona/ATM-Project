@@ -14,6 +14,7 @@ export const VerMovimientos = () => {
       try {
         toast.info("Por favor espere un momento")
         const transfers = await getTransactions();
+        transfers.sort((a, b) => b.date - a.date);
         setTransfers(transfers);
         toast.dismiss();
       } catch (error) {
