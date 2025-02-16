@@ -23,9 +23,6 @@ export const CambioDePin = () => {
     const confirmarNuevoPIN = () => {
         if (newPin === "1234") {
             toast.error("Por favor, ingrese un PIN distinto al actual.");
-        } else if (newPin.length < 4) {
-            // Keyboard ya verifica que el input sean 4 digitos, esta condicional resulta redundante
-            notify("El PIN debe tener 4 dígitos.");
         } else {
             // Hacer el cambio del pin sobre la BD
             toast.success("Nuevo PIN registrado.");

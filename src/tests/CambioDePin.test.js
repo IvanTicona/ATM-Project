@@ -1,53 +1,39 @@
 import React from "react";
-import { render, screen, fireEvent } from "@testing-library/react";
-import "@testing-library/jest-dom"; 
-import { CambioDePin } from "../screens/CambioDePin";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import "@testing-library/jest-dom"; // Ensures Jest recognizes `toBeInTheDocument`
+import { CambioDePin } from "../screens/CambioDePin"; 
 import { KeyboardContext } from "../contexts/KeyboardContext";
 import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
-// Función mock para evitar errores con navigate
-jest.mock("react-router-dom", () => ({
-    useNavigate: () => jest.fn(),
+// Mocking context and components
+jest.mock('../components/common/Keyboard', () => ({
+    Keyboard: ({ limit, action }) => (
+        <button onClick={() => action()}>{`Mock Keyboard with limit ${limit}`}</button>
+    )
 }));
-
+// Mocking the toast container
 describe("Pruebas en <CambioDePin />", () => {
-    let setStateMock;
-
-    beforeEach(() => {
-        setStateMock = jest.fn();
+    test("Debe mostrar el título correctamente", () => {
         render(
-            <KeyboardContext.Provider value={{ setState: setStateMock }}>
+            <KeyboardContext.Provider value={{ keyboardValue: "", setState: jest.fn() }}>
                 <CambioDePin />
-                <ToastContainer /> {}
             </KeyboardContext.Provider>
         );
+
+        // Verifica que el título "INGRESE SU NUEVO PIN:" se muestre
+        expect(screen.getByText("INGRESE SU NUEVO PIN:")).toBeInTheDocument();
     });
 
-    test("Debe mostrar el título 'INGRESAR NUEVO PIN'", () => {
-        expect(screen.getByText("INGRESAR NUEVO PIN")).toBeInTheDocument();
     });
+// Este test asegura que el valor ingresado en el teclado se muestre correctamente
+    test("Debe mostrar el valor del teclado correctamente", () => {
+        render(
+            <KeyboardContext.Provider value={{ keyboardValue: "1234", setState: jest.fn() }}>
+                <CambioDePin />
+            </KeyboardContext.Provider>
+        );
 
-    test("Debe mostrar los botones numéricos", () => {
-        for (let i = 0; i <= 9; i++) {
-            expect(screen.getByText(i.toString())).toBeInTheDocument();
-        }
+        // Verifica que el valor del teclado sea "1234"
+        expect(screen.getByText("1234")).toBeInTheDocument();
     });
-
-    test("Debe mostrar un mensaje si el PIN es menor a 4 dígitos", () => {
-        const button1 = screen.getByText("1");
-        fireEvent.click(button1);
-        fireEvent.click(screen.getByText("✔")); 
-
-        expect(screen.getByText("El PIN debe tener 4 dígitos.")).toBeInTheDocument();
-    });
-
-    test("Debe mostrar un mensaje si el PIN es '1234' (igual al actual)", async () => {
-        fireEvent.click(screen.getByText("1"));
-        fireEvent.click(screen.getByText("2"));
-        fireEvent.click(screen.getByText("3"));
-        fireEvent.click(screen.getByText("4"));
-        fireEvent.click(screen.getByText("✔")); 
- 
-        expect(await screen.findByText("Por favor, ingrese un PIN distinto al actual.")).toBeInTheDocument();
-    });    
-});

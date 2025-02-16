@@ -1,6 +1,8 @@
 
 import { Button } from "../components/common/Button";
 import "../styles/Operaciones.css";
+import React from 'react';
+
 
 
 export const TipoDeCambio = () => {
