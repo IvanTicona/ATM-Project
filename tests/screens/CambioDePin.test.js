@@ -1,8 +1,8 @@
 import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom"; 
-import { CambioDePin } from "../screens/CambioDePin";
-import { KeyboardContext } from "../contexts/KeyboardContext";
+import { CambioDePin } from "../../src/screens/CambioDePin";
+import { KeyboardContext } from "../../src/contexts/KeyboardContext";
 import { ToastContainer } from "react-toastify";
 
 // Función mock para evitar errores con navigate

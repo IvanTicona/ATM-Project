@@ -46,12 +46,5 @@
       "\\.(css|scss|sass)$": "identity-obj-proxy",
       "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
     }
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleNameMapper": {
-      "\\.(css|scss|sass)$": "identity-obj-proxy",
-      "\\.(jpg|jpeg|png|gif|webp|svg)$": "<rootDir>/__mocks__/fileMock.js"
-    }
   }
 }

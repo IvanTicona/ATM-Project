@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom"; // Ensures Jest recognizes `toBeInTheDocument`
-import { TipoDeCambio } from "../screens/TipoDeCambio"; 
+import { TipoDeCambio } from "../../src/screens/TipoDeCambio"; 
 
 jest.mock("../../assets/nextIcon.svg", () => "mock-image"); // Mock SVG imports
 
