@@ -10,17 +10,15 @@ export const RetiroRapido = () => {
     <>
  
         <h1 className='title-atm'>Retiro</h1>
-        <p className="texto">Saldo disponible: <strong>Bs. <span id="balance">1000</span> </strong></p>
-        <div className="buttons">
+    <div className="buttons">
+            <Button texto = "10 Bs." direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
+            <Button texto = "20 Bs." direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
             <Button texto = "50 Bs." direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
             <Button texto = "100 Bs." direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
             <Button texto = "200 Bs." direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
             <Button texto = "500 Bs." direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
+            <Button texto = "Otro monto" direccion = "derecha" accion = {()=> navigate("/retiro")}/>
     </div>
-    <input type="number" id="customAmount" placeholder="Otro monto" />
-    <Button texto = "Retiro" direccion = "derecha" accion = {()=> navigate("/retiroRapido")}/>
- 
-
     </>
   )
 }
