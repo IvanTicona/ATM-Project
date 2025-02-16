@@ -3,7 +3,7 @@ import '../App.css';
 import { useNavigate } from 'react-router';
 import { Button } from '../components/common/Button';
 import { accountNumber } from '../services/account';
-import '../styles/Tarjeta.css';
+import '../styles/CuentasPropias.css';
 
 
 export const CuentasPropias = () => {
@@ -11,8 +11,10 @@ export const CuentasPropias = () => {
 
   return (
     <>
-      <h3>Seleccione la cuenta a la que va a transferir</h3>
+    <h3 className='title-atm'>Seleccione la cuenta a la que va a transferir</h3>
+    <div className="cuentas">
       <Button texto={`Numero de cuenta: ${accountNumber}`} direccion='izquierda' accion={()=> navigate('/deposito')}/> 
+    </div>
     </>
   );
 };

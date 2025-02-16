@@ -25,9 +25,9 @@ export const Deposito = () => {
 
   return (
     <>
-      <h3>Deposito</h3>
+      <h3 className='title-atm'>Ingresar la cantidad a depositar en Bs. </h3>
       <div className = "pin-container">
-        bs.{keyboardValue}
+        {keyboardValue}
       </div>
       <Keyboard action={under_deposit} />  
     </>

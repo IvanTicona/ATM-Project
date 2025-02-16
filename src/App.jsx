@@ -3,11 +3,10 @@ import "./App.css";
 import {
   CambioDePin,
   ConsultarSaldo,
-  CuentasOtrosBancos,
   CuentasPropias,
-  CuentasTerceros,
   Deposito,
   Extracto,
+  IngresarCuenta,
   LeerTarjeta,
   Login,
   Operaciones,
@@ -16,12 +15,13 @@ import {
   Retiro,
   SinTarjeta,
   TipoDeCambio,
+  TransferOthers,
   TransferenciaCuenta,
   VerEnPantalla,
+  VerMovimientos
 } from "./screens";
 
 import { Keyboard } from "./components/common/Keyboard";
-import { VerMovimientos } from "./screens/VerMovimientos";
 function App() {
   return (
     <Routes>
@@ -40,10 +40,9 @@ function App() {
       <Route path="/tipocambio" element={<TipoDeCambio />} />
       <Route path="/pin" element={<CambioDePin />} />
       <Route path="/movimientos" element={<VerMovimientos />} />
-
+      <Route path="/ingresar-cuenta" element={<IngresarCuenta />} />
       <Route path="/ver-en-pantalla" element={<VerEnPantalla />} />
-      <Route path="/cuentas-terceros" element={<CuentasTerceros />} />
-      <Route path="/cuentas-otros-bancos" element={<CuentasOtrosBancos />} />
+      <Route path="/cuentas-terceros" element={<TransferOthers />} />
       <Route path="/cuentas-propias" element={<CuentasPropias />} />
 
       {/* Pantalla para de confirmacion SALIR */}

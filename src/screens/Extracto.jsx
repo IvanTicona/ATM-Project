@@ -7,7 +7,7 @@ export const Extracto = () => {
   let navigate = useNavigate();
   return (
     <div className='extractos-container'>
-      <h1>Extracto</h1>
+      <h3 className='title-atm'>Extracto</h3>
       <div className="buttons-container">
         <Button texto="Ver en Pantalla" direccion="derecha" accion={() => navigate('/ver-en-pantalla')} />
         <Button texto="Imprimir" direccion="derecha" accion={() => navigate('/imprimir')} />

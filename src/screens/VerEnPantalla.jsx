@@ -40,11 +40,15 @@ export const VerEnPantalla = () => {
 
       <div className="ver-en-pantalla-container">
 
-        <p className="ver-en-pantalla-text">Última transaccion: {account.lastTransaction}</p>
-        <p className="ver-en-pantalla-text">Saldo Disponible: {account.balance}</p>
-        <p className="ver-en-pantalla-text">Tipos de Transacción: {"DEPOSITO, RETIRO"}</p>
-        <p className="ver-en-pantalla-text">Fecha y Hora: {account.date}</p>
-        <p className="ver-en-pantalla-text">Propietario: {account.owner}</p>
+        <p className="ver-en-pantalla-text">Última transaccion: <span>{account.lastTransaction}</span></p>
+        <span className='divider'></span>
+        <p className="ver-en-pantalla-text">Saldo Disponible: <span>Bs.{account.balance}</span></p>
+        <span className='divider'></span>
+        <p className="ver-en-pantalla-text">Tipos de Transacción: <span>{"DEPOSITO, RETIRO"}</span></p>
+        <span className='divider'></span>
+        <p className="ver-en-pantalla-text">Fecha y Hora: <span>{account.date}</span></p>
+        <span className='divider'></span>
+        <p className="ver-en-pantalla-text">Propietario: <span>{account.owner}</span> </p>
 
       </div>
 
