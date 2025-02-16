@@ -6,6 +6,7 @@ import { ToastContainer, toast } from "react-toastify";
 import { withDraw } from "../services/transactionService";
 import { accountNumber } from "../services/account";
 import { useNavigate } from "react-router";
+import { OpcionesDeSalida } from '../components/common/OpcionesDeSalida'
 
 export const Retiro = () => {
 
@@ -21,7 +22,10 @@ export const Retiro = () => {
       }
       toast.info("Enviada solicitud para el retiro de: " + keyboardValue + " Bs.");
       await withDraw(accountNumber, numericAmount);
-      navigate("/operaciones");
+      toast.success("Retiro completado con éxito.")
+      const timer = setTimeout(() => {
+        navigate("/operaciones");
+      }, 3000);
     } catch (error) {
       toast.error("Error: " + error.message);
       setKeyboardValue("");
@@ -33,6 +37,7 @@ export const Retiro = () => {
       <h3 className="title-atm">INGRESE EL MONTO QUE DESEA RETIRAR:</h3>
       <h3 className="amount">{keyboardValue}</h3>
       <Keyboard action={handleSubmit} />
+      <OpcionesDeSalida/>
       <ToastContainer />
     </>
   )
