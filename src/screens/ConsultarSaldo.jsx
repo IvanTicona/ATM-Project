@@ -14,8 +14,10 @@ export const ConsultarSaldo = () => {
   useEffect(() => {
     const fetchSaldo = async () => {
       try {
+        toast.info("Por favor espere un momento")
         const { balance } = await getAccountData();
         setAccountBalance(balance);
+        toast.dismiss();
       } catch (e) {
         toast.error("Error al consultar saldo");
       }
@@ -31,14 +33,9 @@ export const ConsultarSaldo = () => {
       <h3 className="balance">Bs. {accountBalance}</h3>
       <div className="div-horizontal">
         <Button
-          direccion="izquierda"
+          direccion="derecha"
           texto="Otro servicio"
           accion={() => navigate("/operaciones")}
-        />
-        <Button
-          direccion="derecha"
-          texto="Salir"
-          accion={() => navigate("/login")}
         />
       </div>
       <ToastContainer />
