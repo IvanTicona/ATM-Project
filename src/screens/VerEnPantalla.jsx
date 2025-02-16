@@ -2,9 +2,9 @@
 import React from 'react'
 import '../styles/VerEnPantalla.css'; 
 import { useNavigate } from 'react-router';
-import { Button } from '../components/common/Button';
 import { useEffect, useState } from 'react';
 import { getAccountData } from '../services/account';
+import { OpcionesDeSalida } from '../components/common/OpcionesDeSalida';
 
 
 export const VerEnPantalla = () => {
@@ -52,10 +52,7 @@ export const VerEnPantalla = () => {
 
       </div>
 
-      <div className="buttons-container">
-        <Button texto='Otro servicio' direccion='derecha' accion={()=> navigate('/otro-servicio')} />
-        <Button texto='Salir' direccion='derecha' accion={()=> navigate('/leer-tarjeta')} />
-      </div>
+      <OpcionesDeSalida/>      
     </>
   );
 };
