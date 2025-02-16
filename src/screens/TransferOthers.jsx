@@ -22,10 +22,13 @@ export const TransferOthers = () => {
             toast.info("Procesando transacción, por favor espere.")
             await transfer(accountNumber, toAccountNumber, numericAmount)
             localStorage.removeItem('toAccountNumber')
-            navigate("/extracto")
+            toast.success("Retiro completado con éxito.")
+            const timer = setTimeout(() => {
+                navigate("/extracto")
+            }, 2000);
         } catch (error) {
             console.log(error)
-            toast.error("Fondos insuficientes para la transferencia.");
+            toast.error(error.message);
         }
     }
 
@@ -36,8 +39,8 @@ export const TransferOthers = () => {
                 {keyboardValue}
             </div>
             <Keyboard action={undertransfer} />
-            <OpcionesDeSalida/>
-            <ToastContainer/>
+            <OpcionesDeSalida />
+            <ToastContainer />
         </>
     )
 }

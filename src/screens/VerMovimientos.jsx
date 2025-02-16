@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { TransferComponent } from '../components/TransferComponent'
 import { getTransactions } from '../services/account'
+import { toast, ToastContainer } from 'react-toastify';
 import '../styles/VerMovimientos.css'
+import { OpcionesDeSalida } from '../components/common/OpcionesDeSalida'
 
 export const VerMovimientos = () => {
 
@@ -10,9 +12,11 @@ export const VerMovimientos = () => {
   useEffect(()=>{
     const fetchAccountData = async () => {
       try {
+        toast.info("Por favor espere un momento")
         const transfers = await getTransactions();
         transfers.sort((a, b) => b.date - a.date);
         setTransfers(transfers);
+        toast.dismiss();
       } catch (error) {
         console.error(error);
       }
@@ -37,6 +41,8 @@ export const VerMovimientos = () => {
         ))
       }
       </div>
+      <OpcionesDeSalida/>
+      <ToastContainer/>
     </>
   )
 }
