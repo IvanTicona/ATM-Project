@@ -3,7 +3,6 @@ import { Button } from '../components/common/Button'
 import { opciones } from '../utils/opciones';
 import '../styles/Operaciones.css'
 
-
 export const Operaciones = () => {
 
   let navigate = useNavigate();

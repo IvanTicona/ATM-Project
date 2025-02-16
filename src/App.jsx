@@ -3,10 +3,10 @@ import "./App.css";
 import {
   CambioDePin,
   ConsultarSaldo,
-  CuentasOtrosBancos,
   CuentasPropias,
-  CuentasTerceros,
+  Deposito,
   Extracto,
+  IngresarCuenta,
   LeerTarjeta,
   Login,
   Operaciones,
@@ -15,12 +15,13 @@ import {
   Retiro,
   SinTarjeta,
   TipoDeCambio,
+  TransferOthers,
   TransferenciaCuenta,
   VerEnPantalla,
+  VerMovimientos
 } from "./screens";
 
 import { Keyboard } from "./components/common/Keyboard";
-
 function App() {
   return (
     <Routes>
@@ -30,18 +31,18 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/operaciones" element={<Operaciones />} />
 
-       <Route path="/rapido" element={<RetiroRapido />} /> 
+      <Route path="/rapido" element={<RetiroRapido />} /> 
       <Route path="/saldo" element={<ConsultarSaldo />} />
       <Route path="/retiro" element={<Retiro />} /> 
+      <Route path="/deposito" element={<Deposito />} />
       <Route path="/extracto" element={<Extracto />} />
-      {/* <Route path="/servicios" element={<Servicios />} /> */}
       <Route path="/transferencia" element={<TransferenciaCuenta />} />
       <Route path="/tipocambio" element={<TipoDeCambio />} />
       <Route path="/pin" element={<CambioDePin />} />
-
+      <Route path="/movimientos" element={<VerMovimientos />} />
+      <Route path="/ingresar-cuenta" element={<IngresarCuenta />} />
       <Route path="/ver-en-pantalla" element={<VerEnPantalla />} />
-      <Route path="/cuentas-terceros" element={<CuentasTerceros />} />
-      <Route path="/cuentas-otros-bancos" element={<CuentasOtrosBancos />} />
+      <Route path="/cuentas-terceros" element={<TransferOthers />} />
       <Route path="/cuentas-propias" element={<CuentasPropias />} />
 
       {/* Pantalla para de confirmacion SALIR */}

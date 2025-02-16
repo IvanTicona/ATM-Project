@@ -2,15 +2,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100vh; /* Ocupa toda la pantalla */
-  justify-content: flex-start; /* Centra el contenido al principio de la pantalla */
+  height: 100vh; 
+  justify-content: flex-start; 
 }
 
 .buttons-container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Espaciado entre botones */
-  align-items: center; /* Centra los botones horizontalmente */
-  margin-top: 20px; /* Separación del título */
+  gap: 20px;
+  align-items: center;
+  margin-top: 20px; 
 }
 

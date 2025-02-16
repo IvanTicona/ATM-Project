@@ -1,0 +1,19 @@
+.cambio-container{
+    display: flex;
+    flex-direction: column;
+    background-color: #cfcfcf;
+    padding: 20px;
+    color: #484848;
+    font-size: 12px;
+    border-bottom: solid 10px;
+    border-color: rgb(0, 128, 0);
+    border-radius: 20px;
+    margin: 30px auto;
+}
+
+.cambio-title {
+    align-self: center;
+    color: #303030;
+    font-size: 32px;
+    font-style: italic;
+}

@@ -1,0 +1,13 @@
+.container-transfers{
+  overflow-y: scroll;
+  width: 80%;
+}
+
+.container-transfers::-webkit-scrollbar {
+  width: 10px;
+}
+
+.container-transfers::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
