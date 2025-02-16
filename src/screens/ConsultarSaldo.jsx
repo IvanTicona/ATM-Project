@@ -6,6 +6,7 @@ import { Button } from "../components/common/Button";
 import { getAccountData, accountNumber } from "../services/account";
 import "../styles/Button.css";
 import "../styles/Saldo.css";
+import { OpcionesDeSalida } from "../components/common/OpcionesDeSalida";
 
 export const ConsultarSaldo = () => {
   const [accountBalance, setAccountBalance] = useState(0);
@@ -32,11 +33,7 @@ export const ConsultarSaldo = () => {
       <h3 className="balance">Cuenta: {accountNumber}</h3>
       <h3 className="balance">Bs. {accountBalance}</h3>
       <div className="div-horizontal">
-        <Button
-          direccion="derecha"
-          texto="Otro servicio"
-          accion={() => navigate("/operaciones")}
-        />
+        <OpcionesDeSalida />
       </div>
       <ToastContainer />
     </>
