@@ -5,8 +5,6 @@ import { accountNumber, getAccountData } from '../services/account';
 import { withDraw } from '../services/transactionService';
 import { toast } from 'react-toastify';
 
-
-
 export const RetiroRapido = () => {
     let navigate = useNavigate();
     const amounts =[50,100,200,500]
@@ -38,21 +36,23 @@ export const RetiroRapido = () => {
     }, []);
   return (
     <>
- 
-        <h1 className='title-atm'>Retiro</h1>
-        <p className="texto">Saldo disponible: <strong>Bs. <span id="balance">{acountBalance}</span> </strong></p>
-        <div className="buttons">
-            {
-              amounts.map((amount,index)=>{
-                return(
-                  <Button key={index} texto = {`Bs.${amount}`} direccion = "derecha" accion = {()=> handleSubmit(amount)}/>
-                )
-              })
-            }
-    </div>
-    <Button texto = "Otro monto" direccion = "derecha" accion = {()=> navigate("/retiro")}/>
- 
-
+      <h3 className='title-atm'>Retiro</h3>
+      <h3 className="title-atm">Saldo disponible: <strong>Bs. <span id="balance">{acountBalance}</span> </strong></h3>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '60%',
+        justifyContent: 'space-between',
+      }}>
+      {
+        amounts.map((amount,index)=>{
+          return(
+            <Button key={index} texto = {`Bs.${amount}`} direccion = "derecha" accion = {()=> handleSubmit(amount)}/>
+          )
+        })
+      }
+      </div>
+      <Button texto = "Otro monto" direccion = "derecha" accion = {()=> navigate("/retiro")}/>
     </>
   )
 }

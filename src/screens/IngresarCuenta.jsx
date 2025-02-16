@@ -5,20 +5,18 @@ import { accountNumber } from '../services/account';
 import { Keyboard } from '../components/common/Keyboard';
 import { KeyboardContext } from '../contexts/KeyboardContext';
 import { TransferOthers } from './TransferOthers';
+import { ToastContainer, toast } from "react-toastify";
+import { OpcionesDeSalida } from '../components/common/OpcionesDeSalida';
 
 export const IngresarCuenta = () => {
   let navigate = useNavigate();
 
   const { keyboardValue } = useContext(KeyboardContext)
   const under_deposit = () => {
-    if(keyboardValue.length < 10){
-        console.log("Por favor, ingresa un numero de cuenta válido.")
-        return
-    } 
     const toAccountNumber = Number(keyboardValue)
     if (isNaN(toAccountNumber) || toAccountNumber <= 0) {
-        console.log("Por favor, ingresa un numero de cuenta válido.")
-        return
+      toast.error("Por favor, ingrese un número de cuenta válido.")
+      return
     }
     localStorage.setItem('toAccountNumber', keyboardValue)
     navigate("/cuentas-terceros")
@@ -26,11 +24,13 @@ export const IngresarCuenta = () => {
 
   return (
     <>
-    <h3 className='title-atm'>Ingrese el numero de cuenta del destinatario </h3>
-    <div className = "pin-container">
+      <h3 className='title-atm'>Ingrese el numero de cuenta del destinatario </h3>
+      <div className="pin-container">
         {keyboardValue}
       </div>
-      <Keyboard action={under_deposit} />  
+      <Keyboard limit={10} action={under_deposit} exactLenght={true} />
+      <OpcionesDeSalida />
+      <ToastContainer />
     </>
   )
 }
