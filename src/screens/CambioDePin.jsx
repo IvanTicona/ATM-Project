@@ -7,6 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import "../styles/Keyboard.css";
 import "../styles/Login.css";
 import { getAccountData, updateAccountData } from "../services/account";
+import { OpcionesDeSalida } from '../components/common/OpcionesDeSalida'
 
 export const CambioDePin = () => {
 
@@ -26,6 +27,7 @@ export const CambioDePin = () => {
       await updateAccountData(newData);
       toast.success("PIN actualizado correctamente");
     } catch (e) {
+      console.log(e)
       toast.error("Error al actualizar PIN");
     }
   };
@@ -47,6 +49,7 @@ export const CambioDePin = () => {
       <h3 className="title-atm">INGRESE SU NUEVO PIN:</h3>
       <h3 className="pin-container">{keyboardValue}</h3>
       <Keyboard limit={4} action={confirmarNuevoPIN} exactLenght={true} />
+      <OpcionesDeSalida/>
       <ToastContainer />
     </>
   );
