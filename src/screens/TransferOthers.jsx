@@ -25,7 +25,7 @@ export const TransferOthers = () => {
             navigate("/extracto")
         } catch (error) {
             console.log(error)
-            toast.error("Fondos insuficientes para la transferencia.");
+            toast.error(error.message);
         }
     }
 
