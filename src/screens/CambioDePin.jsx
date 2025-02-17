@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
-import { CambioDePin } from "../../src/screens/CambioDePin";
+import { CambioDePin } from './CambioDePin';
 import { getAccountData, updateAccountData } from "../../src/services/account";
 import { KeyboardContext } from "../../src/contexts/KeyboardContext";
 import "@testing-library/jest-dom";
@@ -47,3 +47,5 @@ describe("CambioDePin", () => {
     expect(updateAccountData).toHaveBeenCalledWith({ pin: 4321 });
   });
 });
+
+

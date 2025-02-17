@@ -1,30 +1,30 @@
-/* eslint-disable no-unused-vars */
 import React from 'react';
-import { render, screen, waitFor } from '@testing-library/react';
-import { VerEnPantalla } from '../../src/screens/VerEnPantalla';
-import { getAccountData } from '../../src/services/account';
+import { render, screen } from '@testing-library/react';
+import { TipoDeCambio } from '../../src/screens/TipoDeCambio';
 import '@testing-library/jest-dom';
 
-// Este test debe verificar que el componente VerEnPantalla renderiza correctamente
-// y que muestra el tipo de cambio en pantalla
-describe('VerEnPantalla', () => {
-  // Mock para los servicios
-  jest.mock('../../src/services/account', () => ({
-    getAccountData: jest.fn(),
-  }));
+describe('TipoDeCambio', () => {
+  it('debe mostrar los tipos de cambio correctamente', () => {
+    // Arrange: 
+    // No es necesario mockear
 
-  // Test para verificar que el componente VerEnPantalla renderiza correctamente
-  it('should render VerEnPantalla', async () => {
-    // Mock de la respuesta del servicio getAccountData
-    getAccountData.mockResolvedValue({
-      tipoDeCambio: 20,
-    });
+    // Act: Renderizar el componente
+    render(<TipoDeCambio />);
 
-    // Renderizamos el componente
-    render(<VerEnPantalla />);
+    // Assert: Verificación de que el título "Tipo de Cambio" aparece en pantalla
+    expect(screen.getByText(/tipo de cambio/i)).toBeInTheDocument();
 
-    // Verificamos que el componente se renderizó correctamente
-    expect(screen.getByText('Tipo de cambio')).toBeInTheDocument();
-    expect(screen.getByText('20')).toBeInTheDocument();
+    // Assert: Verificación de que las divisas y sus valores se muestran correctamente usando regex
+    expect(screen.getByText(/dólar/i)).toBeInTheDocument();
+    expect(screen.getByText(/Compra = Bs\s*6.95/i)).toBeInTheDocument();
+    expect(screen.getByText(/Venta = Bs\s*6.97/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/euro/i)).toBeInTheDocument();
+    expect(screen.getByText(/Compra = Bs\s*7.21/i)).toBeInTheDocument();
+    expect(screen.getByText(/Venta = Bs\s*7.23/i)).toBeInTheDocument();
+
+    expect(screen.getByText(/sol/i)).toBeInTheDocument();
+    expect(screen.getByText(/Compra = Bs\s*1.85/i)).toBeInTheDocument();
+    expect(screen.getByText(/Venta = Bs\s*1.86/i)).toBeInTheDocument();
   });
 });
