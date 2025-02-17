@@ -21,13 +21,10 @@ import {
   VerMovimientos
 } from "./screens";
 
-import { Keyboard } from "./components/common/Keyboard";
 function App() {
   return (
     <Routes>
-      <Route path="/prueba" element={<Keyboard limit={4} />} />
-
-      <Route path="/" element={<Operaciones />} />
+      <Route path="/sin-tarjeta" element={<Login />} />
       <Route path="/login" element={<Login />} />
       <Route path="/operaciones" element={<Operaciones />} />
 

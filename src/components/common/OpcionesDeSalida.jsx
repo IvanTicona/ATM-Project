@@ -9,7 +9,7 @@ export const OpcionesDeSalida = () => {
         <>
             <div className="buttons-container">
                 <Button texto='Otro servicio' direccion='derecha' accion={() => navigate('/otro-servicio')} />
-                <Button texto='Salir' direccion='derecha' accion={() => navigate('/leer-tarjeta')} />
+                <Button texto='Salir' direccion='derecha' accion={() => navigate('/sin-tarjeta')} />
             </div>
         </>
     )
