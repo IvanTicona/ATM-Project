@@ -1,56 +1,51 @@
-/* eslint-disable no-unused-vars */
-import React, { useState, useContext, useEffect } from "react";
-import { Keyboard } from "../components/common/Keyboard";
-import { KeyboardContext } from "../contexts/KeyboardContext";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import "../styles/Keyboard.css";
-import "../styles/Login.css";
-import { getAccountData, updateAccountData } from "../services/account";
-import { OpcionesDeSalida } from '../components/common/OpcionesDeSalida'
+import React from "react";
+import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+import { CambioDePin } from './CambioDePin';
+import { getAccountData, updateAccountData } from "../../src/services/account";
+import { KeyboardContext } from "../../src/contexts/KeyboardContext";
+import "@testing-library/jest-dom";
 
-export const CambioDePin = () => {
+jest.mock("../../src/services/account", () => ({
+  getAccountData: jest.fn(),
+  updateAccountData: jest.fn(),
+}));
 
-  const [accountData, setAccountData] = useState({});
-  const { keyboardValue } = useContext(KeyboardContext);
+describe("CambioDePin", () => {
+  beforeEach(() => {
+    jest.clearAllMocks();
+  });
 
-  const confirmarNuevoPIN = async () => {
-    if (keyboardValue.length < 4) {
-      toast.error("El PIN debe tener 4 dígitos");
-      return;
-    } else if (Number(keyboardValue) === accountData.pin) {
-      toast.error("El nuevo PIN no puede ser igual al anterior");
-      return;
-    }
-    const newData = { ...accountData, pin: Number(keyboardValue) };
-    try {
-      await updateAccountData(newData);
-      toast.success("PIN actualizado correctamente");
-    } catch (e) {
-      console.log(e)
-      toast.error("Error al actualizar PIN");
-    }
-  };
+  it("should update pin correctly", async () => {
+    const fakeData = { pin: 1234 };
+    getAccountData.mockResolvedValue(fakeData);
+    updateAccountData.mockResolvedValue();
 
-  useEffect(() => {
-    const fetchAccountData = async () => {
-      try {
-        const data = await getAccountData();
-        setAccountData(data);
-      } catch (e) {
-        toast.error("Error al obtener datos de la cuenta");
-      }
-    };
-    fetchAccountData();
-  }, []);
+    // Simular contexto del teclado
+    const keyboardContextValue = { keyboardValue: "4321" };
 
-  return (
-    <>
-      <h3 className="title-atm">INGRESE SU NUEVO PIN:</h3>
-      <h3 className="pin-container">{keyboardValue}</h3>
-      <Keyboard limit={4} action={confirmarNuevoPIN} exactLenght={true} />
-      <OpcionesDeSalida/>
-      <ToastContainer />
-    </>
-  );
-};
+    render(
+      <KeyboardContext.Provider value={keyboardContextValue}>
+        <CambioDePin />
+      </KeyboardContext.Provider>
+    );
+
+    // Esperar a que se cargue el estado de la cuenta
+    await waitFor(() => {
+      expect(getAccountData).toHaveBeenCalledTimes(1);
+    });
+
+    // Buscar el teclado en el DOM (si hay un botón que lo acciona)
+    const keyboardDisplay = screen.getByText("4321"); // Verifica que el teclado muestra el PIN ingresado
+    expect(keyboardDisplay).toBeInTheDocument();
+
+    // Simular confirmación
+    await waitFor(() => {
+      updateAccountData.mock.calls.length > 0;
+    });
+
+    expect(updateAccountData).toHaveBeenCalledTimes(1);
+    expect(updateAccountData).toHaveBeenCalledWith({ pin: 4321 });
+  });
+});
+
+
