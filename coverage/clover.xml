@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1739755249649" clover="3.2.0">
+  <project timestamp="1739755249649" name="All files">
+    <metrics statements="44" coveredstatements="12" conditionals="6" coveredconditionals="0" methods="13" coveredmethods="0" elements="63" coveredelements="12" complexity="0" loc="44" ncloc="44" packages="3" files="5" classes="5"/>
+    <package name="components.common">
+      <metrics statements="7" coveredstatements="2" conditionals="4" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <file name="Button.jsx" path="/Users/mazenabuhamdan/ATM-Project/src/components/common/Button.jsx">
+        <metrics statements="2" coveredstatements="1" conditionals="4" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+      </file>
+      <file name="OpcionesDeSalida.jsx" path="/Users/mazenabuhamdan/ATM-Project/src/components/common/OpcionesDeSalida.jsx">
+        <metrics statements="5" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="screens">
+      <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <file name="VerEnPantalla.jsx" path="/Users/mazenabuhamdan/ATM-Project/src/screens/VerEnPantalla.jsx">
+        <metrics statements="12" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="35" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+      </file>
+    </package>
+    <package name="services">
+      <metrics statements="25" coveredstatements="9" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+      <file name="account.js" path="/Users/mazenabuhamdan/ATM-Project/src/services/account.js">
+        <metrics statements="21" coveredstatements="5" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="0" type="stmt"/>
+        <line num="27" count="1" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="30" count="0" type="stmt"/>
+        <line num="31" count="0" type="stmt"/>
+        <line num="34" count="1" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="stmt"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="40" count="0" type="stmt"/>
+        <line num="44" count="1" type="stmt"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="48" count="0" type="stmt"/>
+        <line num="49" count="0" type="stmt"/>
+      </file>
+      <file name="firebase.js" path="/Users/mazenabuhamdan/ATM-Project/src/services/firebase.js">
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="9" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
