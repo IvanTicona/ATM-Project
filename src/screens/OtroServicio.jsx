@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { Button } from '../components/common/Button';
@@ -8,7 +9,7 @@ export const OtroServicio = () => {
 
   return (
     <div className="contenedor">
-      <h1 className = "text">¿Requiere otro Servicio?</h1>
+      <h3 className='title-atm'>¿Requiere otro Servicio?</h3>
       <div className="botones">
         <Button texto="Si" direccion="izquierda" accion={() => navigate('/operaciones')} />
         <Button texto="No" direccion="izquierda" accion={() => navigate('/sin-tarjeta')} />

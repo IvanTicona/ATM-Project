@@ -24,7 +24,7 @@ import {
 function App() {
   return (
     <Routes>
-      <Route path="/sin-tarjeta" element={<Login />} />
+      <Route path="/" element={<SinTarjeta />} />
       <Route path="/login" element={<Login />} />
       <Route path="/operaciones" element={<Operaciones />} />
 
