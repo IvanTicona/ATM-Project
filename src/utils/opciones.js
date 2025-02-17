@@ -5,7 +5,7 @@ export const opciones = [
   { name: "Retiro", path: "retiro" },
   { name: "Extracto", path: "extracto" },
   { name: "Ver Movimientos", path: "movimientos" },
-  { name: "Transferencia", path: "transferencia" },
+  { name: "Deposito", path: "transferencia" },
   { name: "Tipo De Cambio", path: "tipocambio" },
   { name: "Cambio De PIN", path: "pin" },
 ];
