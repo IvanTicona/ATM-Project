@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext } from 'react'
 import { useNavigate } from 'react-router';
 import { KeyboardContext } from '../contexts/KeyboardContext';
@@ -23,7 +24,7 @@ export const TransferOthers = () => {
             await transfer(accountNumber, toAccountNumber, numericAmount)
             localStorage.removeItem('toAccountNumber')
             toast.success("Retiro completado con éxito.")
-            const timer = setTimeout(() => {
+            setTimeout(() => {
                 navigate("/extracto")
             }, 2000);
         } catch (error) {
